@@ -1,0 +1,25 @@
+.charities-container{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    align-items: center;
+}
+.card{
+    width: 80%;
+    height: 500px;
+    background: #349DAE;
+    border-radius: 6px;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    box-shadow: 0px 7px 10px rgba(black, 0.5);
+    font-family: Avenir;
+}
+img {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+   
+}
