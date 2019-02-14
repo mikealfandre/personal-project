@@ -1,38 +1,42 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Charities.scss'
+import {updateMyList} from './../../Ducks/reducer'
+import {connect} from 'react-redux'
 
 class Charities extends Component {
     constructor(props) {
         super(props)
         this.state = {
             charities: [],
-            donationHistory: {},
-            myList: [],
+            donationHistory: {},          
         }
     }
+    
     componentDidMount(){
         axios.get('/api/charities')
             .then(res => {
-                this.setState({
+                this.setState({                   
                     charities: res.data
                 })
             })
             console.log('state charities', this.state.charities)
-
-        // axios.get('https://api.unsplash.com/photos/random')
-        //     .then(res => {
-        //         this.setState({
-        //             charities
-        //         })
-        //     })
     }
+
+    handleAdd(charity){
+        
+         this.props.updateMyList(charity) 
+        
+    }
+    
     render() {
         console.log('state charities 2', this.state.charities)
+        console.log('state mylist', this.state.mylist)
         let showCharities = this.state.charities.map((charity, index) => {
             
             return(
                 <div className='card' key={index}>
+                <button onClick={() => this.handleAdd(charity) }>+</button>
                 <img src={charity.img} alt=''/>
                 <p>{charity.name}</p>
                 <p>{charity.mission}</p>
@@ -46,8 +50,7 @@ class Charities extends Component {
         return (
             <div className='charities-container'>
                 Charities Component
-            
-                
+                           
                 {showCharities}
                 
                 <button>$0.50</button>
@@ -58,7 +61,7 @@ class Charities extends Component {
     }
 }
 
-export default Charities
+export default connect(null, {updateMyList})(Charities)
                 
                 
                 

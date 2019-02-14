@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Charities from '../Charities/Charites'
 import './Home.scss'
+import {Link} from 'react-router-dom'
 
 class Home extends Component{
     constructor(props){
@@ -14,10 +15,14 @@ class Home extends Component{
             <div className='home-container'>
                 Home Component
                 <nav>
-                    <p>+myList</p>
-                    <p>profile</p>
-                    <p>create account</p>
+                    
+                        <Link to='/profile/mylist' className="link">+myList</Link> 
+                        <Link to='/profile' className="link">profile</Link> 
+                        <Link to='/create-account' className="link">create account</Link>  
+                    
                 </nav>
+
+                    
                 <Charities/>
             </div>
         )

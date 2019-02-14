@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './Profile.scss'
 import {Link} from 'react-router-dom'
-import MyList from '../MyList/MyList'
-import DonationHistory from '../DonationHistory/DonationHistory'
+import profileroutes from '../../profileroutes'
+
 
 class Profile extends Component {
     constructor(props) {
@@ -19,12 +19,15 @@ class Profile extends Component {
                 Profile Component
                 <nav>
                     <ul>
-                        <Link to={Profile}><li>preferences</li></Link>
-                        <Link to={MyList}><li>myList</li></Link>
-                        <Link to={DonationHistory}><li>Donation History</li></Link>
+
+                        <Link to='/'><li>X</li></Link>
+                        <Link to='/profile/preferences'><li>preferences</li></Link>
+                        <Link to='/profile/mylist'><li>myList</li></Link>
+                        <Link to='/profile/donation-history'><li>Donation History</li></Link>
                         
                     </ul>
                 </nav>
+                {profileroutes}
                 
             </div>
         )
