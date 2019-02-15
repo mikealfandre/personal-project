@@ -3,6 +3,7 @@ import Charities from '../Charities/Charites'
 import './Home.scss'
 import {Link} from 'react-router-dom'
 
+
 class Home extends Component{
     constructor(props){
         super(props)
@@ -12,7 +13,7 @@ class Home extends Component{
     }
     render(){
         return(
-            <div className='home-container'>
+            <div className='home-container'> 
                 Home Component
                 <nav>
                     
@@ -21,8 +22,7 @@ class Home extends Component{
                         <Link to='/create-account' className="link">create account</Link>  
                     
                 </nav>
-
-                    
+  
                 <Charities/>
             </div>
         )

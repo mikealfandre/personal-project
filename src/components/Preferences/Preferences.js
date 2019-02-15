@@ -14,7 +14,9 @@ class Preferences extends Component {
     render() {
         return (
             <div className='Preferences-container'>
-                Preferences Component
+                
+            
+            <button></button><p>I would like to receive monthly donation statements</p>
                 
                 
 

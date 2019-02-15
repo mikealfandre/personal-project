@@ -1,6 +1,60 @@
 
-@import "./../../global-styles/container";
-@import "./../../global-styles/card";
-@import "./../../global-styles/img";
+// @import "./../../global-styles/container";
+// @import "./../../global-styles/card";
+// @import "./../../global-styles/img";
 
 
+// .charities-container{
+//     display: flex;
+//     flex-flow: column;
+//     width: 100%;
+//     align-items: center;
+// }
+
+.App {
+  text-align: center;
+  position: relative;
+}
+
+.col {
+  height: 264px;
+  position: relative; }
+  .col:before, .col:after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 120%;
+    background: linear-gradient(to right, white 15%, rgba(255, 255, 255, 0) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; }
+  .col:after {
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, white 15%, rgba(255, 255, 255, 0) 100%); }
+
+
+.cards-slider-wrapper {
+    display: flex;
+    position: absolute;
+    .card {
+        flex: 1;
+        min-width: 400px;
+    }
+}
+.cards-slider {
+    position: relative;
+    max-width: 300px;
+    margin: 0 auto;
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: 264px;
+        outline: 5px solid blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
