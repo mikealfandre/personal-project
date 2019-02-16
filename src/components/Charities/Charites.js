@@ -76,18 +76,18 @@ class Charities extends Component {
                 >Prev</button>
                    
                    
-                                        <div className="col">
-                                            <div className={`cards-slider active-slide-${charity.index}`}>
-                                                <div className="cards-slider-wrapper" style={{
-                                                    'transform': `translateX(-${charity.index * (100 / charities.length)}%)`
-                                                }}>
-                                                    {
-                                                        charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.name} mission={charity.mission} tagline={charity.tagline} category={charity.category} cause={charity.cause} rating={charity.rating} index={charity.index} handleAddFn={this.handleAdd} />)
-                                                    }                       
-                                                    </div>
-                                                </div>
-                                        </div>        
-                    
+                    <div className="col">
+                        <div className={`cards-slider active-slide-${charity.index}`}>
+                            <div className="cards-slider-wrapper" style={{
+                                'transform': `translateX(-${charity.index * (100 / charities.length)}%)`
+                            }}>
+                                {
+                                    charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.name} mission={charity.mission} tagline={charity.tagline} category={charity.category} cause={charity.cause} rating={charity.rating} index={charity.index} handleAddFn={this.handleAdd} />)
+                                }                       
+                                </div>
+                            </div>
+                    </div>        
+
                 
             
                 

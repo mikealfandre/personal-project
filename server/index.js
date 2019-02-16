@@ -14,6 +14,8 @@ massive(CONNECTION_STRING).then(db => {
     app.listen(SERVER_PORT, () => console.log(`Momentum on ${SERVER_PORT}`))
 })
 
+app.use(express.json())
+
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
@@ -23,3 +25,6 @@ app.use(session({
 
 
 app.get('/api/charities', dbcr.getAll)
+app.get('/api/preferences', dbcr.getPreferences)
+
+app.put('/api/user/:id', dbcr.updateEmail)
