@@ -4,6 +4,8 @@ import './Charities.scss'
 import Card from './Card/Card'
 import {updateMyList} from './../../Ducks/reducer'
 import {connect} from 'react-redux'
+import leftarrow from './left-arrow.svg'
+import rightarrow from './right-arrow.svg'
 
 class Charities extends Component {
     constructor(props) {
@@ -65,21 +67,37 @@ class Charities extends Component {
         return (
             <div className="charities-container">
                 
-
                 <button className='arrow left'                 
                     onClick={() => this.nextCharity()}
                     disabled={charity.index === charities.length - 1}
                 >
-                Next
-                
+                    <svg
+                        viewBox="0 0 50 80"
+                        width="60px"
+                        height="80px"
+                        xmlns="http://www.w3.org/2000/svg" width="60px" height="80px" viewBox="0 0 50 80" space="preserve"
+                    >
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="
+	                    45.63,75.8 0.375,38.087 45.63,0.375 "/>
+                    </svg>             
                 </button>
-                
-                <button
+                  
+                <button className='arrow right'
                     onClick={() => this.prevCharity()}
                     disabled={charity.index === 0}
-                >Prev</button>
-                   
-                   
+                >
+                
+                    <svg
+                        viewBox="0 0 50 80"
+                        width="60px"
+                        height="80px"
+                        xmlns="http://www.w3.org/2000/svg" width="60px" height="80px" viewBox="0 0 50 80" space="preserve"
+                    >
+                        <polyline fill="none" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="
+	                    0.375,0.375 45.63,38.087 0.375,75.8 "/>
+                    </svg>
+                </button>
+                                      
                     <div className="col">
                         <div className={`cards-slider active-slide-${charity.index}`}>
                             <div className="cards-slider-wrapper" style={{

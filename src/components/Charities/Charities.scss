@@ -4,13 +4,6 @@
 // @import "./../../global-styles/img";
 
 
-// .charities-container{
-//     display: flex;
-//     flex-flow: column;
-//     width: 100%;
-//     align-items: center;
-// }
-
 $fc: rgb(34, 34, 34);
 $card-font: montserrat;
 
@@ -103,3 +96,75 @@ $i: 0;
   }
 }
 
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  outline:0;
+}
+
+svg {
+  padding: 5px;
+}
+
+.arrow {
+  cursor: pointer;
+//   position: absolute;
+//   top: 50%;
+//   margin-top: -45px;
+  margin-left: -35px;
+  width: 60px;
+  height: 70px;
+  
+  
+}
+
+.left {
+  left: 45%;
+  
+}
+
+.right {
+  left: 55%;
+}
+
+.left:hover polyline,
+.left:focus polyline {
+  stroke-width: 3;
+  stroke: #ffffff;
+}
+
+.left:active polyline {
+  stroke-width: 6;
+  transition: all 100ms ease-in-out;
+}
+
+.right:hover polyline,
+.right:focus polyline {
+  stroke-width: 3;
+  
+}
+
+.right:active polyline {
+  stroke-width: 6;
+  transition: all 100ms ease-in-out;
+}
+
+polyline {
+  transition: all 250ms ease-in-out;
+}
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
