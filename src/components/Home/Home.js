@@ -14,16 +14,17 @@ class Home extends Component{
     render(){
         return(
             <div className='home-container'> 
-                Home Component
-                <nav>
-                    
-                        <Link to='/profile/mylist' className="link">+myList</Link> 
-                        <Link to='/profile' className="link">profile</Link> 
-                        <Link to='/create-account' className="link">create account</Link>  
-                    
+            <div className='top-bar'>
+                <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>
+                <nav>                      
+                    <Link to='/profile/mylist' className="link">+myList</Link> 
+                    <Link to='/profile' className="link">profile</Link> 
+                    <Link to='/create-account' className="link">create account</Link>                         
                 </nav>
+            </div>
+                
   
-                <Charities/>
+                <Charities/> 
             </div>
         )
     }

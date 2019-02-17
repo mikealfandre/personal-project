@@ -61,15 +61,19 @@ class Charities extends Component {
     render() {
         
         const {charities, charity} = this.state
-            
+             
         return (
-            <div className="App">
-                Charities Component <br/>
+            <div className="charities-container">
+                
 
-                <button
+                <button className='arrow left'                 
                     onClick={() => this.nextCharity()}
                     disabled={charity.index === charities.length - 1}
-                >Next</button>
+                >
+                Next
+                
+                </button>
+                
                 <button
                     onClick={() => this.prevCharity()}
                     disabled={charity.index === 0}

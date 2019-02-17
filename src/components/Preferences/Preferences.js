@@ -36,9 +36,9 @@ class Preferences extends Component {
     toggleChange = () => {
         this.setState({
             editing: !this.state.editing
-        })
-           
+        })      
     }
+    
     handleEmailChange = (value) => {
         this.setState({
             email: value

@@ -21,7 +21,7 @@ const Card = (props) => {
                     <li className="icon-car">{mission} <span>mission</span></li>
                 </ul>
             </div>
-        </div>
+        </div> 
     )
 }
 

@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
       <Provider store={store}>
-
+      <div className='blue-box'></div>
       <HashRouter>
         {routes}
       </HashRouter>
