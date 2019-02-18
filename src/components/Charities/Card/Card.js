@@ -3,25 +3,32 @@ import './Card.scss'
 
 
 const Card = (props) => {
-    const { index, charity, img, name, mission, tagline, category, cause, rating } = props;
+    const { index, charity, img, name, mission, tagline, category, cause, rating, id, handleAddFn } = props;
     return (
-        <div id={`card-${index}`} className="card">
-        <button onClick={() => props.handleAddFn(charity)}>X</button>
-            <img src={img} alt={name} />
-            <div className="details">
-                <span className="index">{index + 1}</span>
-                <p className="location">
-                    {name}<br />
-                    {tagline}
-                </p>
-                <ul className="features">
-                    <li className="icon-bed">{category} <span>bedrooms</span></li>
-                    <li className="icon-bath">{cause} <span>bathrooms</span></li>
-                    <li className="icon-car">{rating} <span>parking spots</span></li>
-                    <li className="icon-car">{mission} <span>mission</span></li>
-                </ul>
-            </div>
-        </div> 
+        
+       <div>
+            
+                    <button onClick={() => handleAddFn(charity, id)}>++</button>
+                <div id={`card-${index}`} className="card">
+                            <img src={img} alt={name} />
+                            <div className="details">
+                                <span className="index">{index + 1}</span>
+                                <p className="location">
+                                    {name}<br />
+                                    {tagline}
+                                </p>
+                                <ul className="features">
+                                    <li className="icon-bed">{category} <span>bedrooms</span></li>
+                                    <li className="icon-bath">{cause} <span>bathrooms</span></li>
+                                    <li className="icon-car">{rating} <span>parking spots</span></li>
+                                    <li className="icon-car">{mission} <span>mission</span></li> 
+                                </ul>
+                                
+                            </div>
+                        </div> 
+
+       </div> 
+        
     )
 }
 

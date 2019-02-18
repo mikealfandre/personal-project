@@ -18,6 +18,10 @@ true,
 true
 );
 
+insert into giveusers (email, password)
+value(${email}, ${password})
+returning email, id;
+
 create table charities(
 id serial primary key,
 name text,

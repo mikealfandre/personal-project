@@ -1,5 +1,9 @@
 
 const initialState = {
+    giveuser_id: 0,
+    email: '', 
+    wants_statement: true,
+    wants_updates: true,
     mylist: []
 }
 
@@ -7,6 +11,7 @@ console.log('redux mylist', initialState.mylist)
 
 const UPDATE_MYLIST = 'UPDATE_MYLIST'
 const REMOVE_CHARITY = 'REMOVE_CHARITY'
+const UPDATE_USER = 'UPDATE_USER'
 
 export default function reducer(state = initialState, action){
     const {type, payload} = action
@@ -24,6 +29,8 @@ export default function reducer(state = initialState, action){
             newState.mylist.splice(removeIndex, 1)
             console.log('New State', newState)
             return newState
+        case UPDATE_USER:
+            return Object.assign({}, state, payload)
             
         default:
             return state
@@ -44,5 +51,12 @@ export function removeCharity(id){
     return{
         type: REMOVE_CHARITY,
         payload: id
+    }
+}
+export function updateUser(user){
+    
+    return{
+        type: UPDATE_USER,
+        payload: user
     }
 }

@@ -38,11 +38,15 @@ body {
 	line-height: 1;
 	/* background: url('./pattern.jpg'); */
 	background: url('./positive.png');
+	/* background: url('./papercut-colorful.jpg'); */
+	/* background: url('./unsplash-colorful.jpeg'); */
+	/* background: url('./abstract-colorful-dotted.jpg') no-repeat center center fixed; */
+	/* background-size: cover; */
 	/* border: 7px solid #F6A715; */
-	/* background-color: rgb(185, 185, 185);	 */
+	background-color: rgb(185, 185, 185);	
 	/* background: -webkit-linear-gradient(-40deg, rgb(255, 0, 0), rgb(0, 225, 255), rgb(204, 0, 255)); */
 	/* background: -webkit-linear-gradient(-40deg, rgb(255, 0, 0), rgb(0, 225, 255)); */
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;

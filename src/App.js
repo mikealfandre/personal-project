@@ -10,7 +10,8 @@ class App extends Component {
     return (
       <div className="App">
       <Provider store={store}>
-      <div className='blue-box'></div>
+      <div className='colorful-box'></div>
+      <div className='transparent-box'></div>
       <HashRouter>
         {routes}
       </HashRouter>

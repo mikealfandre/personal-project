@@ -1,37 +1,33 @@
 import React, { Component } from 'react'
 import './Preferences.scss'
 import axios from 'axios'
+import {connect} from 'react-redux';
 
 
 class Preferences extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: 0,
+            giveuser_id: 0,
             email: '',     
             originalemail: '',
             wantsstatement: true,
             wantsupdates: true,
             editing: false
-
         }
     }
     
 
     componentDidMount() {
-        axios.get('/api/preferences')
-            .then(res => {
-                this.originalemail = res.data[0].email
-                console.log('Res Data', res.data)
-                this.setState({
-                    id: res.data[0].giveuser_id,
-                    email: res.data[0].email,
-                    wantsstatement: res.data[0].wants_statement,
-                    wantsupdates: res.data[0].wants_updates,
-                    originalemail: res.data[0].email
-                })
-                
-            })
+        const {giveuser_id, email, originalemail, wants_statement, wants_updates} = this.props
+        this.setState({
+            giveuser_id,
+            email,
+            originalemail,
+            wants_statement,
+            wants_updates
+        })
+       
     }
     toggleChange = () => {
         this.setState({
@@ -46,12 +42,12 @@ class Preferences extends Component {
     }
 
     updateEmail = () => {
-        const {id, email} = this.state
-        axios.put(`/api/user/${id}`, {email})
+        const {giveuser_id, email} = this.state
+        axios.put(`/api/user/${giveuser_id}`, {email})
          .then((res) => {
             this.setState({
                 email: res.data
-            })
+            }) 
             .catch((err) => res.status(500).send(err))
          })
          
@@ -65,6 +61,7 @@ class Preferences extends Component {
 
     render() {
         const {editing, email, wantsstatement, wantsupdates} = this.state
+        console.log('Pref State', this.state)
         console.log('editing', this.state.editing)
         console.log(this.state.email)
         return (
@@ -85,7 +82,7 @@ class Preferences extends Component {
                 <div>
                     <textarea value={email} onChange={(e) => this.handleEmailChange(e.target.value)}></textarea>
                     <button onClick={() => {this.updateEmail(); this.toggleChange()}}>update</button>
-                    <button onClick={() => { this.cancelEmail(); this.toggleChange()}}>cancel</button>
+                    <button onClick={() => {this.cancelEmail(); this.toggleChange()}}>cancel</button>
                 </div>
                 :
                 <div>
@@ -99,7 +96,18 @@ class Preferences extends Component {
     }
 }
 
-export default Preferences
+const mapStateToProps = (state) => {
+    const {giveuser_id, email, wants_statement, wants_updates} = state
+    return{
+        giveuser_id,
+        originalemail: email,
+        email,
+        wants_statement,
+        wants_updates
+    }
+}
+
+export default connect(mapStateToProps)(Preferences) 
 
                 
                 
