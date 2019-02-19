@@ -8,7 +8,7 @@ const Card = (props) => {
         
        <div>
             
-                    <button onClick={() => handleAddFn(charity, id)}>++</button>
+                    <button onClick={() => handleAddFn(id)}>++</button>
                 <div id={`card-${index}`} className="card">
                             <img src={img} alt={name} />
                             <div className="details">
@@ -18,7 +18,7 @@ const Card = (props) => {
                                     {tagline}
                                 </p>
                                 <ul className="features">
-                                    <li className="icon-bed">{category} <span>bedrooms</span></li>
+                                    <li className="icon-bed">{category} <span>bedrooms</span></li> 
                                     <li className="icon-bath">{cause} <span>bathrooms</span></li>
                                     <li className="icon-car">{rating} <span>parking spots</span></li>
                                     <li className="icon-car">{mission} <span>mission</span></li> 

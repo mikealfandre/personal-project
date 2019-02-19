@@ -33,21 +33,16 @@ class Charities extends Component {
             })
     }
 
-    handleAdd = (charity, cid, uid) => {
+    handleAdd = (cid) => {
         
-        axios.post(`/api/mylist/${cid}/${uid}`)
-        
-         this.props.updateMyList(charity)  
-         console.log(charity)
-        
+        axios.post(`/api/mylist/${cid}`)
+                 
     }
 
     nextCharity = () => {
         //NEEDS TO REFERENCE CHARITY INDEX, OR GIVE CHARITY AN INDEX AND UPDATE STATE...
         
-        console.log('state charity before', this.state.charity)
         const newIndex = this.state.charity.index+1
-        console.log('new index', newIndex)
         this.setState({
             charity: this.state.charities[newIndex]
         })
@@ -107,7 +102,7 @@ class Charities extends Component {
                 
                                       
                     <div className="col">
-                        <div className={`cards-slider active-slide-${charity.index}`}>
+                        <div className={`cards-slider active-slide-${charity.index}`}> 
                             <div className="cards-slider-wrapper" style={{
                                 'transform': `translateX(-${charity.index * (100 / charities.length)}%)`
                             }}>

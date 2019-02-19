@@ -17,18 +17,18 @@ export default function reducer(state = initialState, action){
     const {type, payload} = action
     
     switch(type){
-        case UPDATE_MYLIST:
-            let newState = Object.assign({}, state)
-            newState.mylist.push(payload)
-            return newState
-        case REMOVE_CHARITY:
-            newState = {...state}
-            let removeIndex = newState.mylist.findIndex((e) => {
-                return e.id === payload
-            })
-            newState.mylist.splice(removeIndex, 1)
-            console.log('New State', newState)
-            return newState
+        // case UPDATE_MYLIST:
+        //     let newState = Object.assign({}, state)
+        //     newState.mylist.push(payload)
+        //     return newState
+        // case REMOVE_CHARITY:
+        //     newState = {...state}
+        //     let removeIndex = newState.mylist.findIndex((e) => { 
+        //         return e.id === payload
+        //     })
+        //     newState.mylist.splice(removeIndex, 1)
+        //     console.log('New State', newState)
+        //     return newState
         case UPDATE_USER:
             return Object.assign({}, state, payload)
             

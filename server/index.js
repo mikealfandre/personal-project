@@ -20,7 +20,7 @@ app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false, 
     maxAge: null
 }))
 
@@ -29,7 +29,9 @@ app.get('/api/charities', dbcr.getAll)
 app.get('/api/preferences', dbcr.getPreferences)
 
 app.put('/api/preferences/:id', dbcr.updatePreferences)
-app.post('/api/mylist/:cid/:uid', dbcr.addMyList)
+
+app.get('/api/mylist', dbcr.getMyList)
+app.post('/api/mylist/:cid', dbcr.addMyList)
 
 app.get('/auth/user', authcr.getUser)
 app.post('/auth/register', authcr.register)

@@ -12,12 +12,7 @@ class MyList extends Component {
     }
 
     componentDidMount(){
-        const {mylist} = this.props
-        
-        this.setState({
-            mylist
-        })
-        console.log('My List Props', this.props.mylist)
+        axios
     }
     
     componentDidUpdate(prevProps) {
@@ -29,7 +24,7 @@ class MyList extends Component {
 
     removeCharity = (id) => {
 
-        this.props.removeCharity(id)
+        this.props.removeCharity(id) //REMOVE  FROM DATABASE
     }
     render() {
         
