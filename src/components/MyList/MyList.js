@@ -22,23 +22,31 @@ class MyList extends Component {
             })
     }
     
-    componentDidUpdate(prevProps) {
-        
+    componentDidUpdate(prevProps) {  
         if (this.props.mylist !== prevProps.mylist) {
             this.fetchData(this.props.mylist);
         }
     }
 
-    removeCharity = (id) => {
-
-        this.props.removeCharity(id) //REMOVE  FROM DATABASE
+    removeCharity = (cid) => {
+        console.log('cid', cid)
+        axios.delete(`/api/mylist/${cid}`)
+            .then((res) => {
+                this.setState({
+                    mylist: res.data
+                })
+            })
+        
     }
     render() {
         
         let showMyList = this.state.mylist.map((charity, index) => {
+            console.log('Charity.id', charity.id)
+            console.log('Charity', charity)
             return (
                 <div className='my-card' key={index}>
                     <button className='remove-button' onClick={() => this.removeCharity(charity.id)}>X</button>
+                    
                     <img src={charity.img} alt=''/>
                     <p>{charity.name}</p>
                     <p>{charity.mission}</p>

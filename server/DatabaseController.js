@@ -63,5 +63,14 @@ module.exports = {
         db.get_mylist([giveuser_id])
             .then((mylist) => res.status(200).send(mylist))
             .catch((err) => console.log('err', err))
+    },
+    removeCharity: (req, res) => {
+        const db = req.app.get('db')
+        const { giveuser_id } = req.session.user
+        const {cid} = req.params
+
+        db.remove_charity([cid, giveuser_id])
+            .then((mylist) => res.status(200).send(mylist))
+            .catch((err) => res.status(500).send(err))
     }
 }
