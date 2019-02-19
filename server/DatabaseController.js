@@ -24,13 +24,13 @@ module.exports = {
             .catch((err) => res.status(500).send(err))
    
     },
-    updateEmail: (req, res) => {
+    updatePreferences: (req, res) => {
         try {
             const db = req.app.get('db')
 
             const { id } = req.params
-            const { email } = req.body
-            db.update_email([id, email])
+            const { email, wants_statement, wants_updates } = req.body
+            db.update_preferences([id, email, wants_statement, wants_updates])
             
             
         } catch(error){

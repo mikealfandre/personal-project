@@ -28,7 +28,7 @@ app.use(session({
 app.get('/api/charities', dbcr.getAll)
 app.get('/api/preferences', dbcr.getPreferences)
 
-app.put('/api/user/:id', dbcr.updateEmail)
+app.put('/api/preferences/:id', dbcr.updatePreferences)
 app.post('/api/mylist/:cid/:uid', dbcr.addMyList)
 
 app.get('/auth/user', authcr.getUser)

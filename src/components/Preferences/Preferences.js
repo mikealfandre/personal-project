@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Preferences.scss'
 import axios from 'axios'
 import {connect} from 'react-redux';
+import {updateUser} from './../../Ducks/reducer'
 
 
 class Preferences extends Component {
@@ -11,8 +12,8 @@ class Preferences extends Component {
             giveuser_id: 0,
             email: '',     
             originalemail: '',
-            wantsstatement: true,
-            wantsupdates: true,
+            wants_statement: true,
+            wants_updates: true,
             editing: false
         }
     }
@@ -40,13 +41,26 @@ class Preferences extends Component {
             email: value
         })
     }
+    handleStToggle = () => {
+        this.setState({
+            wants_statement: !this.state.wants_statement
+        })
+    }
+    handleUpToggle = () => {
+        this.setState({
+            wants_updates: !this.state.wants_updates
+        })
+    }
 
-    updateEmail = () => {
-        const {giveuser_id, email} = this.state
-        axios.put(`/api/user/${giveuser_id}`, {email})
+    updatePreferences = () => {
+        const {giveuser_id, email, wants_statement, wants_updates} = this.state
+        axios.put(`/api/preferences/${giveuser_id}`, {email, wants_statement, wants_updates})
          .then((res) => {
+            this.props.updateUser(res.data) 
             this.setState({
-                email: res.data
+                email: res.data.email,
+                wants_statement: res.data.wants_statement,
+                wants_updates: res.data.wants_updates
             }) 
             .catch((err) => res.status(500).send(err))
          })
@@ -60,17 +74,17 @@ class Preferences extends Component {
     }
 
     render() {
-        const {editing, email, wantsstatement, wantsupdates} = this.state
-        console.log('Pref State', this.state)
-        console.log('editing', this.state.editing)
-        console.log(this.state.email)
+        const {editing, email, wants_statement, wants_updates} = this.state
+        console.log(this.state)
+        
         return (
             <div className='Preferences-container'>
                 
             
-            <button></button><p>I would like to receive monthly donation statements</p>
+            <input type='checkbox' value={wants_statement} onChange={() => this.handleStToggle()} defaultChecked={this.state.wants_statement}/><p>I would like to receive monthly donation statements</p>
+            <input type='checkbox' value={wants_updates} onChange={() => this.handleUpToggle()} defaultChecked={this.state.wants_updates} /><p>I would like to receive updates on charities I have donated to</p>
             
-            <button></button><p>I would like to receive updates on charities I have donated to</p>
+            
 
             <br/>Preferred contact email
             
@@ -81,7 +95,7 @@ class Preferences extends Component {
                 ?
                 <div>
                     <textarea value={email} onChange={(e) => this.handleEmailChange(e.target.value)}></textarea>
-                    <button onClick={() => {this.updateEmail(); this.toggleChange()}}>update</button>
+                    <button onClick={() => this.toggleChange()}>update</button>
                     <button onClick={() => {this.cancelEmail(); this.toggleChange()}}>cancel</button>
                 </div>
                 :
@@ -90,6 +104,8 @@ class Preferences extends Component {
                     <button onClick={() => this.toggleChange()} >change</button>
                 </div>
             }
+
+                <button onClick={() => this.updatePreferences()} >Save Preferences</button>
 
             </div>
         )

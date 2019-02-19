@@ -68,3 +68,11 @@ amount decimal,
 date date,
 user_id integer references giveusers(giveuser_id)
 );
+
+-- Change user preferences
+
+update giveusers
+set email = $2, 
+    wants_statement = $3, 
+    wants_updates = $4
+where giveuser_id = $1;
