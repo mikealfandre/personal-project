@@ -15,15 +15,15 @@ module.exports = {
         }
         
     },
-    getPreferences: (req, res) => {
-        const db = req.app.get('db')
+    // getPreferences: (req, res) => {
+    //     const db = req.app.get('db')
 
         
-        db.get_preferences([giveuser_id])
-            .then((preferences) => res.status(200).send(preferences)) 
-            .catch((err) => res.status(500).send(err))
+    //     db.get_preferences([giveuser_id])
+    //         .then((preferences) => res.status(200).send(preferences)) 
+    //         .catch((err) => res.status(500).send(err))
    
-    },
+    // },
     updatePreferences: (req, res) => {
         try {
             const db = req.app.get('db')
@@ -59,6 +59,9 @@ module.exports = {
     }, 
     getMyList: (req, res) => {
         const db = req.app.get('db')
-        db.get_mylist()
+        const {giveuser_id} = req.session.user
+        db.get_mylist([giveuser_id])
+            .then((mylist) => res.status(200).send(mylist))
+            .catch((err) => console.log('err', err))
     }
 }

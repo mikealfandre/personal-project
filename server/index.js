@@ -26,7 +26,7 @@ app.use(session({
 
 
 app.get('/api/charities', dbcr.getAll)
-app.get('/api/preferences', dbcr.getPreferences)
+// app.get('/api/preferences', dbcr.getPreferences)
 
 app.put('/api/preferences/:id', dbcr.updatePreferences)
 

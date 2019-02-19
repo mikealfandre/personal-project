@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './MyList.scss'
 import {connect} from 'react-redux'
 import {removeCharity} from './../../Ducks/reducer'
+import axios from 'axios'
 
 class MyList extends Component {
     constructor(props) {
@@ -12,7 +13,13 @@ class MyList extends Component {
     }
 
     componentDidMount(){
-        axios
+        axios.get('/api/mylist')
+            .then((res) => {
+                console.log('MyList res.data', res.data)
+                this.setState({
+                    mylist: res.data
+                })
+            })
     }
     
     componentDidUpdate(prevProps) {
