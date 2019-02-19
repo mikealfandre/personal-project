@@ -31,6 +31,7 @@ module.exports = {
             const { id } = req.params
             const { email, wants_statement, wants_updates } = req.body
             db.update_preferences([id, email, wants_statement, wants_updates])
+                .then((preferences) => res.status(200).send(preferences))
             
             
         } catch(error){

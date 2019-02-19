@@ -20,14 +20,15 @@ class Preferences extends Component {
     
 
     componentDidMount() {
-        const {giveuser_id, email, originalemail, wants_statement, wants_updates} = this.props
+        const {giveuser_id, email, wants_statement, wants_updates} = this.props
         this.setState({
             giveuser_id,
-            email,
-            originalemail,
+            email: email,
+            originalemail: email,
             wants_statement,
             wants_updates
         })
+        console.log('Comp Render State', this.state)
        
     }
     toggleChange = () => {
@@ -55,14 +56,14 @@ class Preferences extends Component {
     updatePreferences = () => {
         const {giveuser_id, email, wants_statement, wants_updates} = this.state
         axios.put(`/api/preferences/${giveuser_id}`, {email, wants_statement, wants_updates})
-         .then((res) => {
-            this.props.updateUser(res.data) 
+        .then((res) => {
+            this.props.updateUser(res.data[0]) 
             this.setState({
-                email: res.data.email,
-                wants_statement: res.data.wants_statement,
-                wants_updates: res.data.wants_updates
+                email: res.data[0].email,
+                wants_statement: res.data[0].wants_statement,
+                wants_updates: res.data[0].wants_updates
             }) 
-            .catch((err) => res.status(500).send(err))
+            // .catch((err) => res.status(500).send(err)) **WHEN ACTIVATED THROWS ERROR SAYING CANT READ CATCH 'EMAIL' UNDEFINED
          })
          
     }
@@ -75,14 +76,14 @@ class Preferences extends Component {
 
     render() {
         const {editing, email, wants_statement, wants_updates} = this.state
-        console.log(this.state)
+        console.log('Start State', this.state)
         
         return (
             <div className='Preferences-container'>
                 
             
-            <input type='checkbox' value={wants_statement} onChange={() => this.handleStToggle()} defaultChecked={this.state.wants_statement}/><p>I would like to receive monthly donation statements</p>
-            <input type='checkbox' value={wants_updates} onChange={() => this.handleUpToggle()} defaultChecked={this.state.wants_updates} /><p>I would like to receive updates on charities I have donated to</p>
+            <input type='checkbox' value={wants_statement} onChange={() => this.handleStToggle()} checked={this.state.wants_statement}/><p>I would like to receive monthly donation statements</p>
+            <input type='checkbox' value={wants_updates} onChange={() => this.handleUpToggle()} checked={this.state.wants_updates} /><p>I would like to receive updates on charities I have donated to</p>
             
             
 
@@ -123,7 +124,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Preferences) 
+export default connect(mapStateToProps, {updateUser})(Preferences) 
 
                 
                 
