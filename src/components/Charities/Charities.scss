@@ -9,10 +9,10 @@ $card-font: montserrat;
 
 .charities-container {
 //   text-align: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  position: relative;
+  // display: flex;
+  // flex-flow: column;
+  // align-items: center;
+  // position: relative;
   width: 100%;
 }
 
@@ -29,7 +29,7 @@ $card-font: montserrat;
     transform: scale(0.8);
     border-radius: 10px;
     box-shadow: 10px 10px 93px 0px rgba(19, 19, 19, 0.75);
-    background-color: rgb(255, 255, 240);
+    background-color: rgb(226, 226, 226);
     // border-color: rgb(113, 126, 0);
     color: $fc;
     font-family: $card-font;
@@ -45,11 +45,30 @@ $i: 0;
 @for $i from 0 through 29 {
     .cards-slider.active-slide-#{$i} #card-#{$i} {
       opacity: 1;
+      max-height: 450px;
+      position: relative;
       transform: scale(1);
-      background-color: #fff5e9;
+      // background-image: linear-gradient(to top, rgb(0, 0, 0), rgb(255, 255, 255));
       border-color: #00b68e;
       .details {
         opacity: 1;
+      }
+      .add-button {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+      }
+      img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      .info {
+        // padding-top: 30%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
       }
     }
 }
@@ -103,7 +122,10 @@ $i: 0;
   flex-flow: row;
   justify-content: space-between;
   margin-top: -20px;
-  width: 15%;
+  width: 100%;
+  padding-right: 45%;
+  padding-left: 45%;
+
   
 }
 

@@ -31,7 +31,7 @@ class Home extends Component{
                 .catch(err => {
                     console.log('No user Found', err)
                     this.setState({
-                        loggedin: false
+                        loggedin: false 
                     })
                 })
         }

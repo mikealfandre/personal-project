@@ -8,11 +8,38 @@ const Card = (props) => {
         
        <div>
             
-                    <button onClick={() => handleAddFn(id)}>++</button>
                 <div id={`card-${index}`} className="card">
-                            <img src={img} alt={name} />
-                            <div className="details">
-                                <span className="index">{index + 1}</span>
+                    <button className='add-button' onClick={() => handleAddFn(id)}>++</button>
+                            
+                    <img src={img} alt={name} />
+
+                    <div className='info'>
+                        
+                            <p>{name}</p>
+                            <p>{tagline}</p>
+                            <p>{category}</p>
+                            <p>{cause}</p>
+                            <p>{rating}</p>
+                            <p>{mission}</p>
+                        
+                    </div>
+
+
+
+
+                </div> 
+
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            {/* <div className="details">
+                                <span className="index">{index + 1}</span> 
                                 <p className="location">
                                     {name}<br /> 
                                     {tagline}
@@ -24,8 +51,7 @@ const Card = (props) => {
                                     <li className="icon-car">{mission} <span>mission</span></li> 
                                 </ul>
                                 
-                            </div>
-                        </div> 
+                            </div> */}
 
        </div> 
         
