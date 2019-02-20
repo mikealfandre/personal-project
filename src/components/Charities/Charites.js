@@ -22,12 +22,12 @@ class Charities extends Component {
                 for(let i=0; i<res.data.length; i++){
                     res.data[i].index = i
                 }
-                console.log('Res Data', res.data)
+                
                 this.setState({                   
                     charities: res.data,
                     charity: res.data[0]
                 })
-                console.log('charity state', this.state.charity)
+                console.log('charities state', this.state.charities)
             }).catch(err => {
                 console.log('charities axios error', err)
             })
@@ -97,7 +97,7 @@ class Charities extends Component {
 	                    0.375,0.375 45.63,38.087 0.375,75.8 "/>
                     </svg>
                 </button>
-            </div>
+            </div> 
 
                 
                                       

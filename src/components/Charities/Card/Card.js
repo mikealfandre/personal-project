@@ -14,7 +14,7 @@ const Card = (props) => {
                             <div className="details">
                                 <span className="index">{index + 1}</span>
                                 <p className="location">
-                                    {name}<br />
+                                    {name}<br /> 
                                     {tagline}
                                 </p>
                                 <ul className="features">

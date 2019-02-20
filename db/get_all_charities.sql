@@ -1,1 +1,1 @@
-select * from charities;
+select * from charities; --order by random() limit 10;
