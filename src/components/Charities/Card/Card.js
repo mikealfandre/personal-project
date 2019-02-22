@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Card.scss'
 
 
 const Card = (props) => {
-    const { index, charity, img, name, mission, tagline, category, cause, rating, id, handleAddFn } = props;
+    const { index, img, name, mission, tagline, category, cause, rating, handleAddFn } = props;
     return (
         
        <div>
             
                 <div id={`card-${index}`} className="card">
-                    <button className='add-button' onClick={() => handleAddFn(id)}>++</button>
+                    <button className='add-button' onClick={() => handleAddFn()}>++</button>
                             
                     <img src={img} alt={name} />
 

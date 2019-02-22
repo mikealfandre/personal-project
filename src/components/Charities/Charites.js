@@ -6,31 +6,98 @@ import {updateMyList} from './../../Ducks/reducer'
 import {connect} from 'react-redux'
 
 
+
 class Charities extends Component {
 constructor(props) {
     super(props)
     this.state = {
         charities: [],
         charity: {},
+        apicharity: {}
         // donationHistory: {},          
     }
 }
 
-componentDidMount(){
-    axios.get('/api/charities')
-        .then(res => {
-            for(let i=0; i<res.data.length; i++){
+async componentDidMount(){
+    const clientId = 'eb4b49d41f233a8aa5090e258373a27b171af21471de5b488b8c741ac092d7f3';
+    //Should I include this in .env and import for security?
+    // const {charities} = this.state
+
+    
+    let res = await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=2&rated=true&minRating=4&scopeOfWork=INTERNATIONAL')
+    console.log(res)
+        try {
+            for (let i = 0; i < res.data.length; i++) {
                 res.data[i].index = i
             }
-            
-            this.setState({                   
+            console.log('res.data', res.data)
+            this.setState({
                 charities: res.data,
                 charity: res.data[0]
             })
-            console.log('charities state', this.state.charities)
-        }).catch(err => {
-            console.log('charities axios error', err)
-        })
+            console.log('State Charities', this.state.charities)
+        }
+        catch(error){
+            console.log(error)
+        }
+            
+       
+        // for (let i = 0; i < this.state.charities.length; i++) {
+        //     let query = this.state.charities[i].charityName
+        //     console.log('Charities.mission', this.state.charities)
+        //     axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${clientId}`)
+        //         .then((res) => {
+        //             this.state.charities[i].img = res.data.urls.regular
+        //         })
+        //     }
+    
+        
+        
+        
+    
+    
+    // .then((res) => {
+    //         for (let i = 0; i < res.data.length; i++) {
+    //             res.data[i].index = i
+    //         }
+    //         console.log('res.data', res.data)
+    //         this.setState({
+    //             charities: res.data,
+    //             charity: res.data[0]
+    //         })
+    //         console.log('State Charities', this.state.charities)
+    //     })
+    
+    // axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=cat&client_id=${clientId}`)
+    //     .then((res) => {
+    //         for (let i = 0; i < this.state.charities.length; i++) {
+    //             this.state.charities[i].img = res.data.urls.regular
+    //         }
+    //         console.log('State Charities 2', this.state.charities)
+    //         // console.log('Res.data.urls', res.data.urls.regular)
+    //         this.setState({
+    //             photo: res.data.urls.small
+    //         })
+    //     })
+
+    
+
+
+    
+    // axios.get('/api/charities')
+    //     .then(res => {
+    //         for(let i=0; i<res.data.length; i++){
+    //             res.data[i].index = i
+    //         }
+            
+    //         this.setState({                   
+    //             charities: res.data,
+    //             charity: res.data[0]
+    //         })
+    //         console.log('charities state', this.state.charities)
+    //     }).catch(err => {
+    //         console.log('charities axios error', err)
+    //     })
 }
 
 handleAdd = (cid) => {
@@ -99,11 +166,13 @@ render() {
                         <div className="cards-slider-wrapper" style={{
                             'transform': `translateX(-${charity.index * (100 / charities.length)}%)`}}>
                             {
-                                charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.name} mission={charity.mission} tagline={charity.tagline} category={charity.category} cause={charity.cause} rating={charity.rating} index={charity.index} id={charity.id} handleAddFn={this.handleAdd} />)
+                                charities.map((charity, index) => <Card key={index} img={charity.img} name={charity.charityName} mission={charity.mission} tagline={charity.tagLine} category={charity.category.categoryName} cause={charity.cause.causeName} rating={charity.currentRating.rating} index={charity.index} handleAddFn={this.handleAdd} />)
                             }                       
                             </div>
                         </div>
                 </div>        
+
+                <div>{this.state.apicharity.charityName}</div>
                         
         </div>
                         
