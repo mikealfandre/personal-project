@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 
 
 
+
 class Charities extends Component {
 constructor(props) {
     super(props)
@@ -23,10 +24,11 @@ async componentDidMount(){
     //Should I include this in .env and import for security?
     // const {charities} = this.state
 
+    // const {charities} = this.state
+
     
-    let res = await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=2&rated=true&minRating=4&scopeOfWork=INTERNATIONAL')
-    console.log(res)
-        try {
+    await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=1&rated=true&minRating=4&scopeOfWork=INTERNATIONAL')
+        .then((res) => {
             for (let i = 0; i < res.data.length; i++) {
                 res.data[i].index = i
             }
@@ -34,22 +36,80 @@ async componentDidMount(){
             this.setState({
                 charities: res.data,
                 charity: res.data[0]
+            })    
+
+        })
+
+    
+        
+        for (let i = 0; i < this.state.charities.length; i++) {
+        let query = this.state.charities[i].charityName
+        console.log('Charities.mission', this.state.charities)
+        axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${clientId}`)
+            .then((res) => {
+                this.state.charities[i].img = res.data.urls.regular
+                //THIS ONLY WORKS IF I SET STATE...WHY? IM SETTING STATE THAT DOESNT EVEN EXIST ON THIS COMPONENT! WHATS THE BEST WAY TO DO TO AXIOS REQUESTS
+                this.setState({
+                    photo: res.data.urls.small
+                })
             })
-            console.log('State Charities', this.state.charities)
+        console.log('Charities.mission', this.state.charities)
         }
-        catch(error){
-            console.log(error)
-        }
+        
+        
+        // axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=cat&client_id=${clientId}`)
+        //     .then((res) => {
+        //         for (let i = 0; i < this.state.charities.length; i++) {
+        //             this.state.charities[i].img = res.data.urls.regular
+        //         }
+        //         console.log('State Charities 2', this.state.charities)
+        //         // console.log('Res.data.urls', res.data.urls.regular)
+        //         this.setState({
+        //             photo: res.data.urls.small
+        //         })
+        //     })
+        
+        
+        
+        
+        
+        
+        
+        
+
             
-       
+
+
+        
+
+        
+        
+        
+
+
         // for (let i = 0; i < this.state.charities.length; i++) {
-        //     let query = this.state.charities[i].charityName
+        //     // let query = this.state.charities[i].charityName
         //     console.log('Charities.mission', this.state.charities)
-        //     axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${clientId}`)
+        //     axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&client_id=${clientId}`)
         //         .then((res) => {
         //             this.state.charities[i].img = res.data.urls.regular
         //         })
-        //     }
+        //     console.log('Charities.mission', this.state.charities)
+        // }
+
+    
+
+        
+
+    
+
+        
+            
+       
+    
+
+        
+    
     
         
         
@@ -68,17 +128,6 @@ async componentDidMount(){
     //         console.log('State Charities', this.state.charities)
     //     })
     
-    // axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=cat&client_id=${clientId}`)
-    //     .then((res) => {
-    //         for (let i = 0; i < this.state.charities.length; i++) {
-    //             this.state.charities[i].img = res.data.urls.regular
-    //         }
-    //         console.log('State Charities 2', this.state.charities)
-    //         // console.log('Res.data.urls', res.data.urls.regular)
-    //         this.setState({
-    //             photo: res.data.urls.small
-    //         })
-    //     })
 
     
 
