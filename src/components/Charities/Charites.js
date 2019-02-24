@@ -27,7 +27,7 @@ async componentDidMount(){
     // const {charities} = this.state
 
     
-    await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=1&rated=true&minRating=4&scopeOfWork=INTERNATIONAL')
+    await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=5&rated=true&categoryID=1&minRating=4&scopeOfWork=INTERNATIONAL')
         .then((res) => {
             for (let i = 0; i < res.data.length; i++) {
                 res.data[i].index = i

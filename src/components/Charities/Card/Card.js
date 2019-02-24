@@ -11,16 +11,19 @@ const Card = (props) => {
                 <div id={`card-${index}`} className="card">
                     <button className='add-button' onClick={() => handleAddFn()}>++</button>
                             
-                    <img src={img} alt={name} />
+                    <img src={img} alt='' />
 
-                    <div className='info'>
+                    <div className='info-container'>
                         
+                        <div className='info'>
                             <p>{name}</p>
                             <p>{tagline}</p>
                             <p>{category}</p>
                             <p>{cause}</p>
                             <p>{rating}</p>
-                            <p>{mission}</p>
+                            <p className='mission'>{mission}</p>
+                        </div>
+                        
                         
                     </div>
 
