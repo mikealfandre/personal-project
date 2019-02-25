@@ -1,2 +1,2 @@
 select * from giveusers
-where email = ${email};
+where email = ${email}; 

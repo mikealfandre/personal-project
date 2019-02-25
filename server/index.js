@@ -36,3 +36,4 @@ app.delete('/api/mylist/:cid', dbcr.removeCharity)
 
 app.get('/auth/user', authcr.getUser)
 app.post('/auth/register', authcr.register)
+app.post('/auth/login', authcr.login)

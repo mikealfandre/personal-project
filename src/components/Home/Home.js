@@ -21,7 +21,7 @@ class Home extends Component{
         const {giveuser_id} = this.props
         if(giveuser_id){
             console.log('ID found, success')
-            // this.props.history.push('/private')
+            // this.props.history.push('/private') 
         }else{
             axios.get('/auth/user')
                 .then((res) => {
@@ -42,13 +42,22 @@ class Home extends Component{
         const {email, password} = this.state
         axios.post('/auth/register', {email, password})
             .then((res) => {
-                console.log(res.data)
+                console.log('register', res.data)
                 this.props.updateUser(res.data)
             })
             .catch((error) => {
                 console.log(error)
             })
 
+    }
+    login = () => {
+        const {email, password} = this.state
+        axios.post('/auth/login', {email, password})
+            .then((res) => {
+                console.log('login',res.data)
+                this.props.updateUser(res.data)
+            })
+            
     }
     handleInput = (prop, value) => {
         this.setState({
@@ -62,6 +71,7 @@ class Home extends Component{
             <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' />
             <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' />
             <button onClick={this.register}>register</button>
+            <button onClick={this.login}>login</button>
             
             <div className='top-bar'>
                 <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>

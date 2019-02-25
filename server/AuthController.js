@@ -13,6 +13,7 @@ module.exports = {
 
         session.user = {...newUser}
         res.status(201).send(session.user) 
+        console.log('session user - Register', session.user)
     }, 
     login: async (req, res) => {
         const db = req.app.get('db')
@@ -24,15 +25,19 @@ module.exports = {
 
         if(!user){
             res.status(418).send('No user found!')
+            console.log('NO user found')
         }
-        let foundUser = bcrypt.compareSync(password, user.password)
+        let foundUser = bcrypt.compareSync(password, user.password) 
         if(foundUser){
             delete user.password
-            session.user
+            session.user = user
             res.status(200).send(session.user)
+            console.log('Found User!', session.user)
         } else {
             res.status(401).send('Unauthorized')
+            console.log('Did Not Find User!', session.user)
         }
+        console.log('session user - Login', session.user)
 
     },
     getUser: (req, res) => {
