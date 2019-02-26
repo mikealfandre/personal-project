@@ -1,5 +1,6 @@
 import React from 'react'
 import './Card.scss'
+import FabButton from './../../MaterialUI/FabButton'
 
 
 
@@ -17,7 +18,8 @@ const Card = (props) => {
        <div>
             
                 <div id={`card-${index}`} className="card">
-                    <button className='add-button' onClick={() => handleAddFn(charity)}>++</button>
+                    {/* <button className='add-button' onClick={() => handleAddFn(charity)}>++</button> */}
+                    <FabButton/>
                     
                     
                 
@@ -45,27 +47,7 @@ const Card = (props) => {
 
                         
                             
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            {/* <div className="details">
-                                <span className="index">{index + 1}</span> 
-                                <p className="location">
-                                    {name}<br /> 
-                                    {tagline}
-                                </p>
-                                <ul className="features">
-                                    <li className="icon-bed">{category} <span>bedrooms</span></li> 
-                                    <li className="icon-bath">{cause} <span>bathrooms</span></li>
-                                    <li className="icon-car">{rating} <span>parking spots</span></li>
-                                    <li className="icon-car">{mission} <span>mission</span></li> 
-                                </ul>
-                                
-                            </div> */}
+    
 
        </div> 
         
