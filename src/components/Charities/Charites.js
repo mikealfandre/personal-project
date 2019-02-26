@@ -4,6 +4,7 @@ import './Charities.scss'
 import Card from './Card/Card'
 import {updateMyList} from './../../Ducks/reducer'
 import {connect} from 'react-redux'
+import DonateButton1 from './../MaterialUI/DonateButton1'
 
 
 
@@ -133,16 +134,17 @@ render() {
                 </div> 
                         
                     
-                <div className="">
+                
                     <div className={`cards-slider active-slide-${charity.index}`}> 
                         <div className="cards-slider-wrapper" style={{
                             'transform': `translateX(-${charity.index * (100 / charities.length)}%)`}}>
                             {
                                 charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.charityName} mission={charity.mission} tagline={charity.tagLine} category={charity.category.categoryName} cause={charity.cause.causeName} rating={charity.currentRating.rating} index={charity.index} handleAddFn={this.handleAdd} />)
-                            }                       
-                            </div>
+                            }       
                         </div>
-                </div>        
+                            <DonateButton1/>
+                    </div>
+                     
 
                 
                         

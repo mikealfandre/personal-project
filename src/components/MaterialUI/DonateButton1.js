@@ -8,23 +8,25 @@ const styles = theme => ({
     fab: {
         margin: theme.spacing.unit,
         position: 'absolute',
-        top: '-20px',
-        right: '-20px',
+        bottom: '-80px',
+        left: '0px',
         zIndex: '1',
-        fontFamily: 'gotham rounded',
-        fontSize: '40px',
-        color: 'black',
-        background: '#FBD103',
+        fontFamily: 'gotham',
+        fontSize: '15px',
+        transform: 'scale(1.6)',
+        textShadow: '2px 2px 8px black'
+        // color: 'black',
+        // background: '#FBD103',
     },
 
 });
 
 function FloatingActionButtons(props) {
-    const { classes, charity, handleAddFn } = props;
+    const { classes } = props;
     return (
         <div>
-            <Fab className={classes.fab} onClick={() => handleAddFn(charity)} >
-                +
+            <Fab color="primary" size='large' className={classes.fab} >
+                $0.50
             </Fab>
         </div>
     );

@@ -55,7 +55,7 @@ class Home extends Component{
         axios.post('/auth/login', {email, password})
             .then((res) => {
                 console.log('login',res.data)
-                this.props.updateUser(res.data)
+                this.props.updateUser(res.data) 
             })
             
     }
@@ -75,6 +75,7 @@ class Home extends Component{
             
             <div className='top-bar'>
                 <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>
+                
                 <nav>                      
                     <Link to='/profile/mylist' className="link"><span>+</span>myList</Link> 
                     <Link to='/profile' className="link">profile</Link> 

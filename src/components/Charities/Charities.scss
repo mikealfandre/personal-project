@@ -14,6 +14,7 @@ $card-font: montserrat;
   // align-items: center;
   // position: relative;
   width: 100%;
+  margin-bottom: 50px;
 }
  
 .cards-slider-wrapper {
@@ -50,9 +51,7 @@ $card-font: montserrat;
       -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(46,46,46,1)), to(rgba(46,46,46,0)));
       mask-image: linear-gradient(to bottom, rgba(46,46,46,1), rgba(46,46,46,0));
     }
-    .add-button {
-      opacity: 0;;
-    }
+
   }
 }
 
@@ -61,19 +60,13 @@ $i: 0;
     .cards-slider.active-slide-#{$i} #card-#{$i} {
       opacity: 1;
       // margin-top: 20px;
+      width: 650px;
       max-height: 450px;
       position: relative;
       transform: scale(1.3);
       // background-image: linear-gradient(to top, rgb(0, 0, 0), rgb(255, 255, 255));
-      border-color: #00b68e;
-      .add-button {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-      }
-      .fab-button {
-        border: 3px solid red;
-      }
+      // border: 2px solid green;
+    
       img {
         width: 100%;
         height: 60%;
@@ -102,9 +95,7 @@ $i: 0;
         position: absolute;
         bottom: 0px;
       }
-      .add-button {
-      opacity: 1
-      }
+      
     }
 }
 
@@ -134,20 +125,22 @@ $i: 0;
 .cards-slider {
   display: flex;
   position: relative;
-  width: 700px;
+  width: 650px;
+  height: 600px;
   margin: 0 auto;
+  border: 6px solid pink;
 
-  //boder for active property
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   width: 100%;
-  //   height: 600px;
-  //   outline: 5px solid rgb(0, 82, 105);
-  //   position: absolute;
-  //   top: 0; 
-  //   left: 0;
-  // }
+  // boder for active property
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 650px;
+    outline: 5px solid rgb(0, 82, 105);
+    position: absolute;
+    top: 0; 
+    left: 0;
+  }
 }
 
 //BUTTONS
