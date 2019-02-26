@@ -19,7 +19,8 @@ const Card = (props) => {
             
                 <div id={`card-${index}`} className="card">
                     {/* <button className='add-button' onClick={() => handleAddFn(charity)}>++</button> */}
-                    <FabButton/>
+                <FabButton handleAddFn={handleAddFn} charity={charity}/>
+                
                     
                     
                 

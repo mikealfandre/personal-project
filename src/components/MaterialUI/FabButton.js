@@ -15,22 +15,15 @@ const styles = theme => ({
         fontSize: '40px',
         color: 'black',
         background: '#FBD103',
-        '&$hover': {
-            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)' 
-        }
-        
-        
-        // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     },
-    hover: {}
 
 });
 
 function FloatingActionButtons(props) {
-    const { classes } = props;
+    const { classes, charity, handleAddFn } = props;
     return (
         <div>
-            <Fab color="inherit" aria-label="Add" hover className={classes.fab} classes={classes.hover} >
+            <Fab color="inherit" aria-label="Add" hover className={classes.fab} onClick={() => handleAddFn(charity)} >
                 +
             </Fab>
         </div>
