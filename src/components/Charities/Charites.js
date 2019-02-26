@@ -19,7 +19,7 @@ constructor(props) {
         charity: {},
         alreadyinlist: '',
         amount: 0.00,
-        timestamp: []       
+        timestamp: []      
     }
 }
 
@@ -60,29 +60,36 @@ async componentDidMount(){
 handleDonation = async (value) => {
     
     
-    console.log('Value', value)
-    console.log('CharityName', charity_name)
+    // console.log('Value', value)
+    // console.log('CharityName', charity_name)
     
     await this.setState({
         amount: value
     })
     
-    const {amount, date} = this.state
+    const stamp = new Date();
+    const day = stamp.getDate();
+    const month = stamp.getMonth();
+    const year = stamp.getFullYear();
+    const sendTimeStamp = (month+1) + ' / ' + day + ' / ' + year
+    console.log('sendtimestamp', sendTimeStamp)
+    console.log('stamp', stamp)
+
+    await this.setState({
+        timestamp: sendTimeStamp
+    })
+    console.log('state timestamp', this.state.timestamp)
+    
+    const {amount, timestamp} = this.state
     const {charityName : charity_name} = this.state.charity
 
-    console.log('State Donation after Click', this.state.amount)
+    // console.log('State Donation after Click', this.state.amount)
     // console.log('timestamp', this.state.timestamp)
 
-    axios.post('/api/donations', {amount, date, charity_name})
-        .then(() => {
-            const timestampNow = new Date()
-            this.setState({
-                timestamp: timestampNow
-            })
-        })
+    axios.post('/api/donations', {amount, timestamp, charity_name})
         .catch((err) => console.log('HandD Error', err))
         
-        console.log('timestamp', this.state.timestamp)
+        
 }
 
 handleAdd = (charity) => {
@@ -122,8 +129,7 @@ prevCharity = () => {
 render() {
     const {charities, charity} = this.state 
     console.log(this.state.timestamp)
-    const date = new Date();
-    const time = date.getDate();
+    
             
     return (
         <div className="charities-container">
@@ -168,10 +174,11 @@ render() {
                             <DonateButton2 handleDonationFn={this.handleDonation} />
                             <DonateButton3 handleDonationFn={this.handleDonation} />
 
-                            <div>TimeStamp: {time}</div>
+                            {/* <div>TimeStamp: {day} / {month+1} / {year}</div> */}
+                            {/* <div>{this.state.timestamp}</div> */}
 
                             {/* {
-                                newTimestamp.map((date, index) => <div key={index}>{date}</div>)
+                                this.state.timestamp.map((timestamp, index) => <div key={index}>{timestamp}</div>)
                             } */}
                                 
                     </div>

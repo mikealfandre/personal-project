@@ -102,10 +102,10 @@ module.exports = {
     addDonation: (req, res) => {
         const db = req.app.get('db')
         const {giveuser_id} = req.session.user
-        const {charity_name, amount, date} = req.body
-        console.log(charity_name, amount, date)
+        const {charity_name, amount, timestamp} = req.body
+        console.log(charity_name, amount, timestamp)
 
-        db.add_donation([amount, date, charity_name, giveuser_id])
+        db.add_donation([amount, timestamp, charity_name, giveuser_id])
     },
     getDonations: (req, res) => {
         console.log('getDonations backend fired')
