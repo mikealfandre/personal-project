@@ -22,10 +22,10 @@ const styles = theme => ({
 });
 
 function FloatingActionButtons(props) {
-    const { classes } = props;
+    const { classes, handleDonationFn } = props;
     return (
         <div>
-            <Fab color="primary" size='large' className={classes.fab} >
+            <Fab color="primary" size='large' className={classes.fab} onClick={() => handleDonationFn(10.00)} >
                 $10
             </Fab>
         </div>

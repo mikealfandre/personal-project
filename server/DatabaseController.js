@@ -103,7 +103,7 @@ module.exports = {
         const db = req.app.get('db')
         const {giveuser_id} = req.session.user
         const {charity_name, amount, date} = req.body
-        // console.log(charity_name, amount, date)
+        console.log(charity_name, amount, date)
 
         db.add_donation([amount, date, charity_name, giveuser_id])
     },

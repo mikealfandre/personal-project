@@ -18,16 +18,18 @@ constructor(props) {
         charities: [],
         charity: {},
         alreadyinlist: '',
-        amount: 0.00, //this is an object that holds amount, date  
-        timestamp: ''        
+        amount: 0.00,
+        timestamp: []       
     }
 }
 
 async componentDidMount(){
-    const clientId = 'eb4b49d41f233a8aa5090e258373a27b171af21471de5b488b8c741ac092d7f3';
-    //Should I include this in .env and import for security?
     
-    await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=5&rated=true&categoryID=1&minRating=4&scopeOfWork=INTERNATIONAL')
+    
+    console.log(process.env.REACT_APP_charity_url)
+    console.log(process.env.REACT_APP_UNSPLASH_ID)
+    
+    await axios.get(`${process.env.REACT_APP_charity_url}`)
         .then((res) => {
             for (let i = 0; i < res.data.length; i++) {
                 res.data[i].index = i
@@ -43,7 +45,7 @@ async componentDidMount(){
     for (let i = 0; i < this.state.charities.length; i++) {
     let query = this.state.charities[i].charityName
     console.log('Charities.mission', this.state.charities)
-    axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${clientId}`)
+        axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
         .then((res) => {
             this.state.charities[i].img = res.data.urls.regular
             //THIS ONLY WORKS IF I SET STATE...WHY? IM SETTING STATE THAT DOESNT EVEN EXIST ON THIS COMPONENT! WHATS THE BEST WAY TO DO TO AXIOS REQUESTS
@@ -56,20 +58,31 @@ async componentDidMount(){
 }
 
 handleDonation = async (value) => {
-    const {amount, date} = this.state
-    const {charityName : charity_name} = this.state.charity
     
-
+    
     console.log('Value', value)
     console.log('CharityName', charity_name)
-
-   await this.setState({
+    
+    await this.setState({
         amount: value
     })
+    
+    const {amount, date} = this.state
+    const {charityName : charity_name} = this.state.charity
+
     console.log('State Donation after Click', this.state.amount)
+    // console.log('timestamp', this.state.timestamp)
 
     axios.post('/api/donations', {amount, date, charity_name})
-
+        .then(() => {
+            const timestampNow = new Date()
+            this.setState({
+                timestamp: timestampNow
+            })
+        })
+        .catch((err) => console.log('HandD Error', err))
+        
+        console.log('timestamp', this.state.timestamp)
 }
 
 handleAdd = (charity) => {
@@ -108,6 +121,9 @@ prevCharity = () => {
 
 render() {
     const {charities, charity} = this.state 
+    console.log(this.state.timestamp)
+    const date = new Date();
+    const time = date.getDate();
             
     return (
         <div className="charities-container">
@@ -151,6 +167,12 @@ render() {
                             <DonateButton1 handleDonationFn={this.handleDonation}/> 
                             <DonateButton2 handleDonationFn={this.handleDonation} />
                             <DonateButton3 handleDonationFn={this.handleDonation} />
+
+                            <div>TimeStamp: {time}</div>
+
+                            {/* {
+                                newTimestamp.map((date, index) => <div key={index}>{date}</div>)
+                            } */}
                                 
                     </div>
                      
