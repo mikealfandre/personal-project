@@ -33,6 +33,20 @@ rating text,
 img text
 );
 
+alter table charities
+add column website_url text,
+add column ein text,
+add column org_id integer,
+add column curr_score integer,
+add column ovr_rating integer,
+add column fin_score integer,
+add column fin_rating integer,
+add column accountability_score integer,
+add column category_id integer,
+add column cause_id integer,
+add column cause_name text, 
+add column nteeType text;
+
 insert into charities(
 name,
 mission,
@@ -57,7 +71,7 @@ where name = 'red cross';
 
 create table mylists(
 id serial primary key,
-charity_id integer references charities(id),
+charity_id integer references charities(ch_id),
 user_id integer references giveusers(giveuser_id)
 );
 

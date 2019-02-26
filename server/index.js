@@ -32,6 +32,7 @@ app.put('/api/preferences/:id', dbcr.updatePreferences)
 
 app.get('/api/mylist', dbcr.getMyList)
 app.post('/api/mylist/:cid', dbcr.addMyList)
+app.post('/api/insertcharity', dbcr.insertCharityDB)
 app.delete('/api/mylist/:cid', dbcr.removeCharity)
 
 app.get('/auth/user', authcr.getUser)

@@ -41,11 +41,11 @@ class MyList extends Component {
     render() {
         
         let showMyList = this.state.mylist.map((charity, index) => {
-            console.log('Charity.id', charity.id)
+            console.log('Charity.id', charity.ch_id)
             console.log('Charity', charity)
             return (
                 <div className='my-card' key={index}>
-                    <button className='remove-button' onClick={() => this.removeCharity(charity.id)}>X</button>
+                    <button className='remove-button' onClick={() => this.removeCharity(charity.ch_id)}>X</button>
                     
                     <img src={charity.img} alt=''/>
                     <p>{charity.name}</p>

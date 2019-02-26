@@ -1,3 +1,11 @@
-insert into mylists(charity_id, user_id)
-values 
-($1, $2);
+insert into mylists(
+user_id,
+charity_id
+) 
+values(
+$1,
+$2
+);
+
+
+

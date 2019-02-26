@@ -2,18 +2,29 @@ import React from 'react'
 import './Card.scss'
 
 
+
+
+
+
+
+
+
 const Card = (props) => {
-    const { index, img, name, mission, tagline, category, cause, rating, handleAddFn } = props;
+    
+    const { charity, index, img, name, mission, tagline, category, cause, rating, handleAddFn } = props;
     return (
         
        <div>
             
                 <div id={`card-${index}`} className="card">
-                    <button className='add-button' onClick={() => handleAddFn()}>++</button>
+                    <button className='add-button' onClick={() => handleAddFn(charity)}>++</button>
+                    
+                    
+                
                             
                     <img src={img} alt='' />
 
-                    <div className='info-container'>
+                    <div className='info-container'> 
                         
                         <div className='info'>
                             <p>{name}</p>
@@ -65,23 +76,4 @@ const Card = (props) => {
 
 
 export default Card
-    // const Card = (props) => {
-    
-    //         const {handleAddFn} = props
-    //         return(
-    //             <div className='card'>
-    //                 <button onClick={() => handleAddFn(props.charity)}>+</button>
-    //                 <img src={props.img} alt='' />
-    //                 <p>{props.name}</p>
-    //                 <p>{props.mission}</p>
-    //                 <p>{props.tagline}</p>
-    //                 <p>{props.category}</p>
-    //                 <p>{props.cause}</p>
-    //                 <p>{props.rating}</p>
-    //             </div>
-    //         )
-        
-        
-            
-        
-    // }
+   
