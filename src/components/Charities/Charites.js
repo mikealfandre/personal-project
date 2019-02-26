@@ -5,6 +5,8 @@ import Card from './Card/Card'
 import {updateMyList} from './../../Ducks/reducer'
 import {connect} from 'react-redux'
 import DonateButton1 from './../MaterialUI/DonateButton1'
+import DonateButton2 from './../MaterialUI/DonateButton2'
+import DonateButton3 from './../MaterialUI/DonateButton3'
 
 
 
@@ -15,18 +17,15 @@ constructor(props) {
     this.state = {
         charities: [],
         charity: {},
-        alreadyinlist: ''
-        // donationHistory: {},          
+        alreadyinlist: '',
+        amount: 0.00, //this is an object that holds amount, date  
+        timestamp: ''        
     }
 }
 
 async componentDidMount(){
     const clientId = 'eb4b49d41f233a8aa5090e258373a27b171af21471de5b488b8c741ac092d7f3';
     //Should I include this in .env and import for security?
-    // const {charities} = this.state
-
-    // const {charities} = this.state
-
     
     await axios.get('https://api.data.charitynavigator.org/v2/Organizations?app_id=79cd9d97&app_key=4417c8a5e6bff925d81c4ea2861f9c28&pageSize=5&rated=true&categoryID=1&minRating=4&scopeOfWork=INTERNATIONAL')
         .then((res) => {
@@ -41,8 +40,6 @@ async componentDidMount(){
 
         })
 
-    
-        
     for (let i = 0; i < this.state.charities.length; i++) {
     let query = this.state.charities[i].charityName
     console.log('Charities.mission', this.state.charities)
@@ -55,16 +52,27 @@ async componentDidMount(){
             })
         })
     console.log('Charities.mission', this.state.charities)
-    }
-        
-  
+    }   
+}
+
+handleDonation = async (value) => {
+    const {amount, date} = this.state
+    const {charityName : charity_name} = this.state.charity
     
+
+    console.log('Value', value)
+    console.log('CharityName', charity_name)
+
+   await this.setState({
+        amount: value
+    })
+    console.log('State Donation after Click', this.state.amount)
+
+    axios.post('/api/donations', {amount, date, charity_name})
+
 }
 
 handleAdd = (charity) => {
-    
-    
-    
     axios.post('/api/insertcharity', {charity})
     .then((res) => {
         console.log('res.data.cid?', res.data)
@@ -75,8 +83,7 @@ handleAdd = (charity) => {
                     alreadyinlist: res.data
                 })
             })
-    })
-        
+    })      
 }
 
 nextCharity = () => {
@@ -100,7 +107,6 @@ prevCharity = () => {
 
 
 render() {
-    
     const {charities, charity} = this.state 
             
     return (
@@ -142,7 +148,10 @@ render() {
                                 charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.charityName} mission={charity.mission} tagline={charity.tagLine} category={charity.category.categoryName} cause={charity.cause.causeName} rating={charity.currentRating.rating} index={charity.index} handleAddFn={this.handleAdd} />)
                             }       
                         </div>
-                            <DonateButton1/>
+                            <DonateButton1 handleDonationFn={this.handleDonation}/> 
+                            <DonateButton2 handleDonationFn={this.handleDonation} />
+                            <DonateButton3 handleDonationFn={this.handleDonation} />
+                                
                     </div>
                      
 

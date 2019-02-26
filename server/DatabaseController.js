@@ -91,12 +91,31 @@ module.exports = {
     removeCharity: (req, res) => {
         const db = req.app.get('db')
         const { giveuser_id } = req.session.user
-        const { cid } = req.params
+        const { cid } = req.params //What's difference between putting this on params or putting it on req.body?
 
         console.log(cid)
         console.log(giveuser_id)
         db.remove_charity([cid, giveuser_id])
             .then((mylist) => res.status(200).send(mylist))
             .catch((err) => res.status(500).send(err))
+    },
+    addDonation: (req, res) => {
+        const db = req.app.get('db')
+        const {giveuser_id} = req.session.user
+        const {charity_name, amount, date} = req.body
+        // console.log(charity_name, amount, date)
+
+        db.add_donation([amount, date, charity_name, giveuser_id])
+    },
+    getDonations: (req, res) => {
+        console.log('getDonations backend fired')
+        const db = req.app.get('db')
+        const {giveuser_id} = req.session.user
+        console.log('GiveuserID', giveuser_id)
+
+        db.get_donations([giveuser_id])
+            .then((donations) => {res.status(200).send(donations)})
+            .catch((err) => res.status(500).send(console.log('This is the backend Error', err)) )
+            
     }
 }

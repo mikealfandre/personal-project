@@ -29,6 +29,8 @@ app.get('/api/charities', dbcr.getAll)
 // app.get('/api/preferences', dbcr.getPreferences)
 
 app.put('/api/preferences/:id', dbcr.updatePreferences)
+app.post('/api/donations', dbcr.addDonation)
+app.get('/api/donations', dbcr.getDonations)
 
 app.get('/api/mylist', dbcr.getMyList)
 app.post('/api/mylist/:cid', dbcr.addMyList)

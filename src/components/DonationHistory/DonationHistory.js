@@ -1,38 +1,50 @@
 import React, { Component } from 'react'
 import './DonationHistory.scss'
 import axios from 'axios'
+import styled from 'styled-components'
 
-const clientId = 'eb4b49d41f233a8aa5090e258373a27b171af21471de5b488b8c741ac092d7f3';
+const buttoncolor = 'red'
+
+const GetPhotoButton = styled.button`
+    font-size: 30px;
+    color: ${buttoncolor};
+
+`
 
 
 class DonationHistory extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            photo: ''         
+            donations: []         
         }
     }
-    
-    getPhoto = () => {
-        axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=cat&client_id=${clientId}`)
+
+    componentDidMount(){
+        axios.get('/api/donations')
             .then((res) => {
-                console.log('Res.data', res.data)
-                console.log('Res.data.urls', res.data.urls.regular)
                 this.setState({
-                    photo: res.data.urls.small
+                    donations: res.data
                 })
             })
     }
+    
+    
     render() {
+        const {donations} = this.state
+        console.log('Donations', this.state.donations)
         return (
             <div className='DonationHistory-container'>
                 DonationHistory Component
 
-                <img src={this.state.photo} alt=''/>
-
-                <button onClick={() => this.getPhoto()}>Get Photo</button>
-
-
+                {
+                    donations.map((donation, index) => 
+                        <div key={index}>
+                            <p>{donation.charity_name}</p>
+                            <p>{donation.amount}</p>
+                            <p>{donation.date}</p>
+                        </div>)
+                }
             </div>
         )
     }

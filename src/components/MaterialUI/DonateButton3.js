@@ -7,12 +7,12 @@ import Fab from '@material-ui/core/Fab';
 const styles = theme => ({
     fab: {
         margin: theme.spacing.unit,
-        // position: 'absolute',
-        // bottom: '-80px',
-        // left: '0px',
+        position: 'absolute',
+        bottom: '-80px',
+        left: '320px',
         zIndex: '1',
         fontFamily: 'gotham',
-        fontSize: '13px',
+        fontSize: '12px',
         transform: 'scale(1.6)',
         textShadow: '2px 2px 8px black'
         // color: 'black',
@@ -22,11 +22,11 @@ const styles = theme => ({
 });
 
 function FloatingActionButtons(props) {
-    const { classes, handleDonationFn } = props;
+    const { classes } = props;
     return (
         <div>
-            <Fab color="primary" size='large' className={classes.fab} onClick={() => handleDonationFn(0.50)} >
-                $0.50
+            <Fab color="primary" size='large' className={classes.fab} >
+                $10
             </Fab>
         </div>
     );
