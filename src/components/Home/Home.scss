@@ -5,6 +5,7 @@ $ls: 1.3px;
 
 //Logo
 $logo-f: 'Gotham Rounded';
+$breakpoint-iphonex: 375px;
 
 .home-container {   
     // width: 100%;
@@ -22,13 +23,20 @@ $logo-f: 'Gotham Rounded';
     margin: 50px;
     margin-bottom: 0px;
     margin-top: 30px;
-    // overflow-x: hidden; **TURN ON WHEN ON MOBILE
+    // overflow-x: hidden; //**TURN ON WHEN ON MOBILE
     background-color: #353B3F;
     // background: -webkit-linear-gradient(-40deg, rgb(255, 0, 0), rgb(255, 0, 170));
     background: -webkit-linear-gradient(-45deg, rgb(82, 82, 82), rgb(16, 81, 124));
     box-shadow: 7px 7px 50px 0px rgba(0,0,0,0.75);
     border-radius: 3px;
     // color: $fc;
+    @media (max-width: $breakpoint-iphonex){
+        // overflow-x: hidden;
+        margin: 12px;
+        margin-top: 7px;
+        
+    }
+
     
    
     
@@ -46,6 +54,10 @@ $logo-f: 'Gotham Rounded';
     margin-bottom: 10px;
     // align-content: center;
     // justify-content: flex-end;
+    @media (max-width: $breakpoint-iphonex){
+        flex-direction: column;
+         
+    }
 }
     nav {
         width: 100%;
@@ -143,5 +155,5 @@ $logo-f: 'Gotham Rounded';
 // 		linear-gradient(90deg, $bg-color ($dot-space - $dot-size), transparent 1%) center,
 // 		linear-gradient($bg-color ($dot-space - $dot-size), transparent 1%) center,
 // 		$dot-color;
-// 	background-size: $dot-space $dot-space;
+// 	background-size: $dot-space $dot-space; 
 // }

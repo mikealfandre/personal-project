@@ -78,7 +78,7 @@ class Home extends Component{
                 
                 <nav>                      
                     <Link to='/profile/mylist' className="link"><span>+</span>myList</Link> 
-                    <Link to='/profile' className="link">profile</Link> 
+                    <Link to='/profile/preferences' className="link">profile</Link> 
                     <Link to='/create-account' className="link">create account</Link>                         
                 </nav>
             </div>

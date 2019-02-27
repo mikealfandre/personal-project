@@ -97,11 +97,15 @@ class Preferences extends Component {
                     
 
                 </div>
+
+                <div className="save-button-container">
+                    <SaveButton updatePreferences={this.updatePreferences}/>
+                    {/* <button onClick={() => this.updatePreferences()} >Save Preferences</button> */}
+                </div>
+
                 
 
                 
-                    <SaveButton updatePreferences={this.updatePreferences}/>
-                    {/* <button onClick={() => this.updatePreferences()} >Save Preferences</button> */}
 
                 
 

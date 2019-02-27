@@ -1,16 +1,33 @@
+$margin-top-container: 5%;
+$margin-top-container-mobile: 3em;
+$breakpoint-iphonex: 375px;
+
 .preferences-container {
     display: flex;
     flex-direction: column;
     width: 80%;
     font-family: 'gotham rounded';
     color: white;
+    align-items: flex-start;
+    padding-left: 20%;
+    // padding-right: 25%;
+    @media (max-width: $breakpoint-iphonex){
+        width: 100%;  
+        padding: 0;
+        align-items: center;
+        // justify-content: center;
+    }
 }
 .switches{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    border: 3px solid pink;
+    margin-top: $margin-top-container;
+    // border: 3px solid pink;
     // transform: scale(1.5);
+    @media (max-width: $breakpoint-iphonex){
+        margin-top: $margin-top-container-mobile;
+    }
     
 }
 .switch-1{
@@ -29,5 +46,21 @@
 .email-container{
     display: flex;
     flex-direction: column;
+    margin-top: $margin-top-container;
+    @media (max-width: $breakpoint-iphonex){
+        margin-top: $margin-top-container-mobile;
+    }
 }
+.save-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: $margin-top-container;
+    padding: 0px;
+    @media (max-width: $breakpoint-iphonex){
+        margin-top: $margin-top-container-mobile;
+    }
+}
+
+
 
