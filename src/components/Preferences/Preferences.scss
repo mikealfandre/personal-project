@@ -1,0 +1,33 @@
+.preferences-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-family: 'gotham rounded';
+    color: white;
+}
+.switches{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 3px solid pink;
+    // transform: scale(1.5);
+    
+}
+.switch-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.switch-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.email-container{
+    display: flex;
+    flex-direction: column;
+}
+
