@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import { connect } from 'react-redux';
 import {updateUser} from './../../Ducks/reducer'
 import axios from 'axios'
+import AppBarMenu from '../MaterialUI/AppBarMenu'
 
 
 class Home extends Component{
@@ -67,6 +68,8 @@ class Home extends Component{
     render(){
         return(
             <div className='home-container'> 
+
+            <AppBarMenu/>
 
             <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' />
             <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' />
