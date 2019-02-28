@@ -29,10 +29,7 @@ $breakpoint-iphonex: 375px;
     }
     nav{
         margin: 0px;
-        margin-top: 6%;
-        
-        
-        
+        margin-top: 2%;  
     }
     .link{
         text-decoration: none;
@@ -51,7 +48,25 @@ $breakpoint-iphonex: 375px;
             justify-content: space-between;
             font-size: 13px;
             
-        }
-        
+        }  
     }
+}
+.exit-button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'gotham';
+    width: 100%;
+    color: black;
+    margin-top: 10px;
+    margin-left: 10px;
+    p {
+        margin-left: -15px;
+    }
+    @media (max-width: $breakpoint-iphonex){
+            margin-top: 0px;
+            margin-left: 0px;
+            
+        }
+    
 }

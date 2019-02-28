@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Profile.scss'
 import {Link} from 'react-router-dom'
 import profileroutes from '../../profileroutes'
+import ExitIconButton from '../MaterialUI/ExitIconButton'
 
 
 
@@ -14,6 +15,10 @@ class Profile extends Component {
         return (
             <div className='profile-container'>
                 {/* Profile Component */}
+                <div className='exit-button'>
+                    <Link to='/' className='link'><ExitIconButton/></Link>
+                    {/* <p>exit</p> */}
+                </div>
                 <nav>
                     <ul className='profile-ul'>
 
@@ -23,7 +28,7 @@ class Profile extends Component {
                         
                     </ul>
                 </nav>
-                        <Link to='/'><p>X</p></Link>
+                
                 {profileroutes}
                 
                 

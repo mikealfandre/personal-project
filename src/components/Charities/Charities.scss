@@ -33,7 +33,7 @@ $breakpoint-iphonex: 375px;
   }
   .card {
     // flex: 1;
-    min-width: 200px;
+    min-width: 200px; 
     opacity: 0.3;
     transform: scale(0.8);
     border-radius: 10px;
@@ -211,6 +211,10 @@ $i: 0;
   width: 100%;
   padding-right: 45%;
   padding-left: 45%;
+  @media (max-width: $breakpoint-iphonex){ 
+      padding-right: 20%;
+  padding-left: 20%;
+  }
 
   
 }
