@@ -29,7 +29,7 @@ $breakpoint-iphonex: 375px;
     }
     nav{
         margin: 0px;
-        margin-top: 20px;
+        margin-top: 6%;
         
         
         
@@ -44,7 +44,7 @@ $breakpoint-iphonex: 375px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         font-size: 24px;
         width: 100%;
         @media (max-width: $breakpoint-iphonex){

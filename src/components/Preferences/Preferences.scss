@@ -9,7 +9,7 @@ $breakpoint-iphonex: 375px;
     font-family: 'gotham rounded';
     color: white;
     align-items: flex-start;
-    padding-left: 20%;
+    padding-left: 15%;
     // padding-right: 25%;
     @media (max-width: $breakpoint-iphonex){
         width: 100%;  
@@ -22,11 +22,11 @@ $breakpoint-iphonex: 375px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: $margin-top-container;
+    margin-top: 15%;
     // border: 3px solid pink;
     // transform: scale(1.5);
     @media (max-width: $breakpoint-iphonex){
-        margin-top: $margin-top-container-mobile;
+        margin-top: 20%;
     }
     
 }

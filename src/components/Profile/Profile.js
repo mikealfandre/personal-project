@@ -13,7 +13,7 @@ class Profile extends Component {
     render() {
         return (
             <div className='profile-container'>
-                Profile Component
+                {/* Profile Component */}
                 <nav>
                     <ul className='profile-ul'>
 
@@ -23,7 +23,7 @@ class Profile extends Component {
                         
                     </ul>
                 </nav>
-                        {/* <Link to='/'><p>X</p></Link> */}
+                        <Link to='/'><p>X</p></Link>
                 {profileroutes}
                 
                 
