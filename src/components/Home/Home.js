@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import {updateUser} from './../../Ducks/reducer'
 import axios from 'axios'
 import AppBarMenu from '../MaterialUI/AppBarMenu'
+import Login from './../MaterialUI/Login'
+import Modal from '../MaterialUI/Modal'
 
 
 class Home extends Component{
@@ -15,7 +17,8 @@ class Home extends Component{
             search: '',
             email: '',
             password: '',
-            loggedin: false
+            loggedin: false,
+            open: false
         }
     }
     componentDidMount(){
@@ -38,6 +41,12 @@ class Home extends Component{
         }
 
     }
+    handleOpen = () => {
+        this.setState({ open: true });
+    };
+    handleClose = () => {
+        this.setState({ open: false });
+    };
 
     register = () => {
         const {email, password} = this.state
@@ -71,6 +80,7 @@ class Home extends Component{
 
             <AppBarMenu/> 
             
+            
             <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' />
             <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' />
             <button onClick={this.register}>register</button>
@@ -82,7 +92,13 @@ class Home extends Component{
                 <nav>                      
                     <Link to='/profile/mylist' className="link"><span>+</span>myList</Link> 
                     <Link to='/profile/preferences' className="link">profile</Link> 
-                    <Link to='/create-account' className="link">create account</Link>                         
+                    <div>
+                        <button onClick={this.handleOpen} className="create-account-button">create account</button> 
+                        <Modal open={this.state.open} handleClose={this.handleClose}>
+                            Create axccount please                        
+                        </Modal>
+
+                    </div>
                 </nav>
             </div>
                 

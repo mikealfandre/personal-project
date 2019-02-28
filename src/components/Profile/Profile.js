@@ -3,6 +3,7 @@ import './Profile.scss'
 import {Link} from 'react-router-dom'
 import profileroutes from '../../profileroutes'
 import ExitIconButton from '../MaterialUI/ExitIconButton'
+import AppBarMenu from '../MaterialUI/AppBarMenu'
 
 
 
@@ -14,7 +15,7 @@ class Profile extends Component {
     render() {
         return (
             <div className='profile-container'>
-                {/* Profile Component */}
+                <AppBarMenu/>
                 <div className='exit-button'>
                     <Link to='/' className='link'><ExitIconButton/></Link>
                     {/* <p>exit</p> */}

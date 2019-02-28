@@ -35,13 +35,15 @@ const styles = theme => ({
         marginRight: 10,
     },
     title: {
-        fontFamily: 'gotham rounded'
-
+        fontFamily: 'gotham rounded',
+        
         // display: 'none',
         // [theme.breakpoints.up('sm')]: {
         //     display: 'block',
         // },
     },
+    
+
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
@@ -172,13 +174,13 @@ class PrimarySearchAppBar extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="absolute">
+                <AppBar position="absolute" style={{ background: '#444444'}} >
                     <Toolbar>
                         {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                             <MenuIcon />
                         </IconButton> */}
-                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            +GIVEWYSE.
+                        <Typography className={classes.title} variant="h6" style={{ color: '#fbd103', letterSpacing: '-1px', fontWeight: 'bold', }} noWrap>
+                            <span style={{ color: 'black', fontSize: '24px', position: 'relative', top: '1px' }}>+</span>GIVEWYSE<span style={{ color: 'black', fontSize: '32px', position: 'relative', top: '1px' }}>.</span>
                         </Typography>
                         {/* <div className={classes.search}>
                             <div className={classes.searchIcon}>

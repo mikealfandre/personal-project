@@ -1,11 +1,13 @@
-$fc: #FBD103;
+$fc: #fbd103;
+// $fc: #444444;
+
 $nav-ff: 'Gotham Rounded';
 $nav-font-size: 20px;
 $ls: 1.3px;
 
 //Logo
 $logo-f: 'Gotham Rounded';
-$breakpoint-iphonex: 376px;
+$breakpoint-iphonex: 959px;
 
 .home-container {   
     // width: 100%;
@@ -31,7 +33,7 @@ $breakpoint-iphonex: 376px;
     border-radius: 3px;
     // color: $fc;
     @media (max-width: $breakpoint-iphonex){
-        // overflow-x: hidden;
+        overflow-x: hidden;
         margin: 12px;
         margin-top: 7px;  
     }
@@ -60,7 +62,6 @@ $breakpoint-iphonex: 376px;
     // justify-content: flex-end;
     @media (max-width: $breakpoint-iphonex){
         display: none;
-         
     }
 }
     nav {
@@ -68,7 +69,7 @@ $breakpoint-iphonex: 376px;
         display: flex;
         // box-sizing: border-box; 
         // height: 100px;
-        // align-items: center;
+        align-items: center;
         justify-content: flex-end;
         position: relative;
         // bottom: 20px;
@@ -81,16 +82,30 @@ $breakpoint-iphonex: 376px;
         color: $fc;
         margin-right: 5%;
         // margin-left: auto;
+        .create-account-button{
+            background: transparent;
+            border: none;
+            margin-left: 30px;
+            padding: 0px;
+            font-family: inherit;
+            font-weight: inherit;
+            font-size: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            cursor: pointer;
+        }
+        button:focus {
+            outline: 0;
+        }
+        
         
     }
 .logo {
     display: flex;
     // box-sizing: border-box; 
     align-items: center;
-    
     // position: relative;
     // top: 20;
-    
     // right: 33%;
     // border: 2px solid black;
     // border-radius: 80px;
@@ -102,7 +117,7 @@ $breakpoint-iphonex: 376px;
     color: $fc ;
     // background-color: #FBD103;
     font-family: $logo-f;
-    font-size: 3.5em;
+    font-size: 2.8em;
     font-weight: bold;
     // margin-top: 10px;
     letter-spacing: -3px;
