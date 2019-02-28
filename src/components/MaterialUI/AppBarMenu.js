@@ -13,28 +13,34 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import AddIcon from '@material-ui/icons/AddCircleRounded';
+import GiftcardIcon from '@material-ui/icons/CardGiftcardRounded';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
     root: {
         width: '100%',
         position: 'absolute',
-        top: '0'
+        top: '0',
+        [theme.breakpoints.up('md')]: {
+            display: 'none !important'
+        }
     },
     grow: {
         flexGrow: 1,
     },
     menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
+        marginLeft: 0,
+        marginRight: 10,
     },
     title: {
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
-            display: 'block',
-        },
+        fontFamily: 'gotham rounded'
+
+        // display: 'none',
+        // [theme.breakpoints.up('sm')]: {
+        //     display: 'block',
+        // },
     },
     search: {
         position: 'relative',
@@ -139,42 +145,42 @@ class PrimarySearchAppBar extends React.Component {
                 open={isMobileMenuOpen}
                 onClose={this.handleMenuClose}
             >
-                <MenuItem onClick={this.handleMobileMenuClose}>
+                <Link to='/profile/mylist' style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleMobileMenuClose}>
                     <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <MailIcon />
-                        </Badge>
+                        
+                            <AddIcon style={{ marginLeft: '-20px' }} />
+                        
                     </IconButton>
-                    <p>Messages</p>
-                </MenuItem>
-                <MenuItem onClick={this.handleMobileMenuClose}>
+                    <p>myList</p>
+                </MenuItem></Link>
+                <Link to='/profile/donation-history' style={{textDecoration: 'none'}}><MenuItem onClick={this.handleMobileMenuClose}>
                     <IconButton color="inherit">
-                        <Badge badgeContent={11} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
+                        
+                            <GiftcardIcon style={{ marginLeft: '-20px' }} />
+                        
                     </IconButton>
-                    <p>Notifications</p>
-                </MenuItem>
-                <MenuItem onClick={this.handleProfileMenuOpen}>
+                    <p>Donations</p>
+                </MenuItem></Link>
+                <Link to='/profile/preferences' style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleProfileMenuOpen}>
                     <IconButton color="inherit">
-                        <AccountCircle />
+                        <AccountCircle style={{ marginLeft: '-20px' }} />
                     </IconButton>
-                    <p>Profile</p>
-                </MenuItem>
+                    <p>Account</p>
+                </MenuItem></Link>
             </Menu>
         );
 
         return (
             <div className={classes.root}>
-                <AppBar position="static">
+                <AppBar position="absolute">
                     <Toolbar>
-                        <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+                        {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
                             <MenuIcon />
-                        </IconButton>
+                        </IconButton> */}
                         <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                            Material-UI
-            </Typography>
-                        <div className={classes.search}>
+                            +GIVEWYSE.
+                        </Typography>
+                        {/* <div className={classes.search}>
                             <div className={classes.searchIcon}>
                                 <SearchIcon />
                             </div>
@@ -185,9 +191,9 @@ class PrimarySearchAppBar extends React.Component {
                                     input: classes.inputInput,
                                 }}
                             />
-                        </div>
+                        </div> */}
                         <div className={classes.grow} />
-                        <div className={classes.sectionDesktop}>
+                        {/* <div className={classes.sectionDesktop}>
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
                                     <MailIcon />
@@ -197,7 +203,7 @@ class PrimarySearchAppBar extends React.Component {
                                 <Badge badgeContent={17} color="secondary">
                                     <NotificationsIcon />
                                 </Badge>
-                            </IconButton>
+                            </IconButton> 
                             <IconButton
                                 aria-owns={isMenuOpen ? 'material-appbar' : undefined}
                                 aria-haspopup="true"
@@ -206,7 +212,7 @@ class PrimarySearchAppBar extends React.Component {
                             >
                                 <AccountCircle />
                             </IconButton>
-                        </div>
+                        </div> */}
                         <div className={classes.sectionMobile}>
                             <IconButton aria-haspopup="true" onClick={this.handleMobileMenuOpen} color="inherit">
                                 <MoreIcon />

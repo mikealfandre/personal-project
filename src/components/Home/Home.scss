@@ -5,7 +5,7 @@ $ls: 1.3px;
 
 //Logo
 $logo-f: 'Gotham Rounded';
-$breakpoint-iphonex: 375px;
+$breakpoint-iphonex: 376px;
 
 .home-container {   
     // width: 100%;
@@ -33,13 +33,17 @@ $breakpoint-iphonex: 375px;
     @media (max-width: $breakpoint-iphonex){
         // overflow-x: hidden;
         margin: 12px;
-        margin-top: 7px;
-        
+        margin-top: 7px;  
     }
-
-    
-   
-    
+}
+.app-bar-menu{
+        // position: relative;
+        // top: 0;
+        left: 0;
+    // @media (min-width: $breakpoint-iphonex){
+    //     display: none !important; 
+        
+    // }
 }
 .top-bar {
     display: flex;
@@ -55,7 +59,7 @@ $breakpoint-iphonex: 375px;
     // align-content: center;
     // justify-content: flex-end;
     @media (max-width: $breakpoint-iphonex){
-        flex-direction: column;
+        display: none;
          
     }
 }

@@ -69,8 +69,8 @@ class Home extends Component{
         return(
             <div className='home-container'> 
 
-            <AppBarMenu/>
-
+            <AppBarMenu/> 
+            
             <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' />
             <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' />
             <button onClick={this.register}>register</button>
