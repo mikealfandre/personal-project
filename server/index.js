@@ -7,9 +7,6 @@ const authcr = require('./AuthController')
 
 const path = require('path'); // Usually moved to the start of file
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
 
 
 app = express()
@@ -30,6 +27,8 @@ app.use(session({
     maxAge: null
 }))
 
+app.use(express.static(`${__dirname}/../build`));
+
 
 app.get('/api/charities', dbcr.getAll)
 // app.get('/api/preferences', dbcr.getPreferences)
@@ -46,3 +45,11 @@ app.delete('/api/mylist/:cid', dbcr.removeCharity)
 app.get('/auth/user', authcr.getUser)
 app.post('/auth/register', authcr.register)
 app.post('/auth/login', authcr.login)
+
+
+
+
+//ONLY NEED THIS IF USING BROWSERROUTER, WHICH IM NOT, IM USING HASH ROUTER
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
