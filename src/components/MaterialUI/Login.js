@@ -19,7 +19,7 @@ const styles = theme => ({
 
 class LoginTab extends React.Component {
     render() {
-        const { classes, email, password, handleInput, register, login } = this.props;
+        const { classes, email, password, handleInput, handleClose, register, login } = this.props;
         return (
             <Paper className={classes.padding}>
                 <div className={classes.margin}>
@@ -54,7 +54,7 @@ class LoginTab extends React.Component {
                     <Grid container justify="center" style={{ marginTop: '10px' }}>
                         <Button onClick={register} variant="outlined" color="primary" style={{ textTransform: "none" }}>Create Account</Button>
                         <div className={classes.orDiv} > or </div>
-                        <Button onClick={login} variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
+                        <Button onClick={() => {login(); handleClose()}} onClose={handleClose} variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
                     </Grid>
                 </div>
             </Paper>

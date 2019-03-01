@@ -52,8 +52,7 @@ class SimpleModal extends React.Component {
 
         return (
             <div>
-                {/* <Typography gutterBottom>Click to get the full Modal experience!</Typography>
-                <Button onClick={this.handleOpen}>Create Account Modal</Button> */}
+                
                 <Modal
                     aria-labelledby="simple-modal-title"
                     aria-describedby="simple-modal-description"
@@ -61,7 +60,7 @@ class SimpleModal extends React.Component {
                     onClose={handleClose}
                 >
                     <div  className={classes.paper}>
-                        <Login email={email} handleInput={handleInput} password={password} register={register} login={login}/>
+                        <Login email={email} handleInput={handleInput} handleClose={handleClose} password={password} register={register} login={login}/>
                         <SimpleModalWrapped />
                     </div>
                 </Modal>

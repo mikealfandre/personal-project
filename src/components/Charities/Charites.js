@@ -165,12 +165,18 @@ render() {
                     
                 
                     <div className={`cards-slider active-slide-${charity.index}`}> 
+
+                    
+
+                        
+
                         <div className="cards-slider-wrapper" style={{
                             'transform': `translateX(-${charity.index * (100 / charities.length)}%)`}}>
                             {
                                 charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.charityName} mission={charity.mission} tagline={charity.tagLine} category={charity.category.categoryName} cause={charity.cause.causeName} rating={charity.currentRating.rating} index={charity.index} handleAddFn={this.handleAdd} />)
                             }       
                         </div>
+                        
                             <DonateButton1 handleDonationFn={this.handleDonation}/> 
                             <DonateButton2 handleDonationFn={this.handleDonation} />
                             <DonateButton3 handleDonationFn={this.handleDonation} />

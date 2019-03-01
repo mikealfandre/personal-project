@@ -19,6 +19,14 @@ $breakpoint-iphonex: 375px;
   // position: relative; 
   width: 100%;
   margin-bottom: 50px;
+  margin-top: -65px;
+  @media (max-width: $breakpoint-iphonex){
+    // position: absolute;
+    // top: 50px; 
+      // padding-right: 0px;
+      // padding-left: 0px;
+      // margin-top: 60%;
+  }
   
 }
  
@@ -32,9 +40,10 @@ $breakpoint-iphonex: 375px;
     visibility: hidden;
   }
   .card {
-    // flex: 1;
+    flex: 1;
     min-width: 200px; 
-    opacity: 0.3;
+    height: 350px;
+    opacity: 0.0;
     transform: scale(0.8);
     border-radius: 10px;
     box-shadow: 10px 10px 93px 0px rgba(19, 19, 19, 0.75);
@@ -60,7 +69,7 @@ $breakpoint-iphonex: 375px;
       border-top-right-radius: 8px;
       object-fit: cover;
       object-position: 0px 0px;
-      position: relative;
+      position: absolute;
       top: -1px;
       -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(46,46,46,1)), to(rgba(46,46,46,0)));
       mask-image: linear-gradient(to bottom, rgba(46,46,46,1), rgba(46,46,46,0));
@@ -74,10 +83,10 @@ $i: 0;
     .cards-slider.active-slide-#{$i} #card-#{$i} {
       opacity: 1;
       // margin-top: 20px;
-      width: 650px;
-      max-height: 450px;
+      width: 675px;
+      max-height: 350px;
       position: relative;
-      transform: scale(1.3);
+      transform: scale(1.2);
       // background-image: linear-gradient(to top, rgb(0, 0, 0), rgb(255, 255, 255));
       // border: 2px solid green;
       @media (max-width: $breakpoint-iphonex){
@@ -90,6 +99,8 @@ $i: 0;
         color: black;
         position: absolute;
         top: -20px;
+        right: -20px;
+        transform: scale(.9);
         @media (max-width: $breakpoint-iphonex){ //For some reason this is being contained by the card-slider-wrapper div
           position: absolute;
           top: -5%;
@@ -174,7 +185,7 @@ $i: 0;
     }
   Button{
     position: relative;
-    top: 600px;
+    top: 500px;
     color: white;
     margin-left: 100%;
     @media (max-width: $breakpoint-iphonex){
@@ -193,7 +204,7 @@ $i: 0;
     content: '';
     display: block;
     width: 100%;
-    height: 650px;
+    height: 30px;
     // outline: 5px solid rgb(0, 82, 105);
     position: absolute;
     top: 0; 
@@ -209,12 +220,23 @@ $i: 0;
   justify-content: space-between;
   margin-top: -20px;
   width: 100%;
-  padding-right: 45%;
-  padding-left: 45%;
-  @media (max-width: $breakpoint-iphonex){ 
-      padding-right: 20%;
-  padding-left: 20%;
+  padding-right: 40%;
+  padding-left: 40%;
+  @media (max-width: $breakpoint-iphonex){
+    padding-right: 20%;
+    padding-left: 20%;
+    margin-top: 60px;
+    margin-bottom: -20px;
   }
+  @media (min-width: 376px){
+      margin-top: 80px;
+      margin-bottom: 20px;
+  }
+  @media (min-width: 960px){
+      margin-top: 10px;
+      margin-bottom: 20px;
+  }
+    
 
   
 }
@@ -236,17 +258,23 @@ svg {
   margin-top: 0px;
   width: 100px;
   // height: 20%;
-  
-  
 }
 
 .left {
-  left: 40%;
-  
+  transform: scale(1.3);
+  position: absolute;
+  // left: 40%;
+  right: 6%;
+  top: 50%;
+  z-index: 3;
 }
 
 .right {
-  left: 55%;
+  transform: scale(1.3);
+  position: absolute;
+  left: 6%;
+  top: 50%;
+  z-index: 3;
 }
 
 .left:hover polyline,
