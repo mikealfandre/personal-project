@@ -8,12 +8,18 @@ const styles = theme => ({
     padding: {
         padding: theme.spacing.unit,
         // background: 'black'
+    },
+    orDiv: {
+        display: 'flex',
+        alignItems: 'center',
+        fontFamily: 'roboto',
+        margin: '0px 10px 0px 10px'
     }
 });
 
 class LoginTab extends React.Component {
     render() {
-        const { classes } = this.props;
+        const { classes, email, password, handleInput, register, login } = this.props;
         return (
             <Paper className={classes.padding}>
                 <div className={classes.margin}>
@@ -22,7 +28,7 @@ class LoginTab extends React.Component {
                             <Face />
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="username" label="Username" type="email" fullWidth autoFocus required />
+                            <TextField value={email} onChange={(e) => handleInput('email', e.target.value)} id="username" label="email" type="email" fullWidth autoFocus required />
                         </Grid>
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
@@ -30,7 +36,7 @@ class LoginTab extends React.Component {
                             <Fingerprint />
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="username" label="Password" type="password" fullWidth required />
+                            <TextField value={password} onChange={(e) => handleInput('password', e.target.value)} id="username" label="password" type="password" fullWidth required />
                         </Grid>
                     </Grid>
                     <Grid container alignItems="center" justify="space-between">
@@ -46,7 +52,9 @@ class LoginTab extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid container justify="center" style={{ marginTop: '10px' }}>
-                        <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
+                        <Button onClick={register} variant="outlined" color="primary" style={{ textTransform: "none" }}>Create Account</Button>
+                        <div className={classes.orDiv} > or </div>
+                        <Button onClick={login} variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
                     </Grid>
                 </div>
             </Paper>

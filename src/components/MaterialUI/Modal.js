@@ -48,7 +48,7 @@ class SimpleModal extends React.Component {
     
 
     render() {
-        const { classes, open, handleClose } = this.props;
+        const { classes, open, handleClose, email, password, handleInput, register, login } = this.props;
 
         return (
             <div>
@@ -61,7 +61,7 @@ class SimpleModal extends React.Component {
                     onClose={handleClose}
                 >
                     <div  className={classes.paper}>
-                    <Login/>
+                        <Login email={email} handleInput={handleInput} password={password} register={register} login={login}/>
                         <SimpleModalWrapped />
                     </div>
                 </Modal>

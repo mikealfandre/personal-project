@@ -70,21 +70,24 @@ class Home extends Component{
             
     }
     handleInput = (prop, value) => {
+        console.log(value)
         this.setState({
             [prop]: value
         })
     }
     render(){
+        console.log('email', this.state.email)
+        console.log('password', this.state.password)
         return(
             <div className='home-container'> 
 
             <AppBarMenu/> 
             
             
-            <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' />
-            <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' />
-            <button onClick={this.register}>register</button>
-            <button onClick={this.login}>login</button>
+            {/* <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' /> */}
+            {/* <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' /> */}
+            {/* <button onClick={this.register}>register</button>
+            <button onClick={this.login}>login</button> */}
             
             <div className='top-bar'>
                 <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>
@@ -94,7 +97,7 @@ class Home extends Component{
                     <Link to='/profile/preferences' className="link">profile</Link> 
                     <div>
                         <button onClick={this.handleOpen} className="create-account-button">create account</button> 
-                        <Modal open={this.state.open} handleClose={this.handleClose}>
+                        <Modal open={this.state.open} handleClose={this.handleClose} email={this.state.email} handleInput={this.handleInput} password={this.state.password} register={this.register} login={this.login}>
                             Create axccount please                        
                         </Modal>
 
