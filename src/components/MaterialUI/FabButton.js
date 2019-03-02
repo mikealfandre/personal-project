@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
-import SignInSnackbar from '../MaterialUI/SignInSnackbar'
+
 
 
 const styles = theme => ({
@@ -39,12 +39,11 @@ class FloatingActionButtons extends Component{
                             +
                         </Fab>
                         :
-                        <SignInSnackbar/>
                         
-                        // <Fab className={classes.fab} >
-                        //     <SignInSnackbar/>
-                                
-                        // </Fab>
+                        
+                        <Fab className={classes.fab} >
+                           +     
+                        </Fab>
                         
 
 
