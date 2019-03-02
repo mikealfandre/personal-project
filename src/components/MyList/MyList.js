@@ -3,8 +3,9 @@ import './MyList.scss'
 import {connect} from 'react-redux'
 import {removeCharity} from './../../Ducks/reducer'
 import axios from 'axios'
+import GridCards from '../MaterialUI/GridCards'
 
-class MyList extends Component {
+class MyList extends Component { 
     constructor(props) {
         super(props)
         this.state = {
@@ -44,24 +45,32 @@ class MyList extends Component {
             // console.log('Charity.id', charity.ch_id)
             // console.log('Charity', charity)
             return (
-                <div className='my-card' key={index}>
-                    <button className='remove-button' onClick={() => this.removeCharity(charity.ch_id)}>X</button>
+                <div>
+                    <GridCards removeCharity={this.removeCharity} charity={charity} index={index}/>
                     
-                    <img src={charity.img} alt=''/>
-                    <p>{charity.name}</p>
-                    <p>{charity.mission}</p>
-                    <p>{charity.tagline}</p>
-                    <p>{charity.category}</p>
-                    <p>{charity.cause}</p>
-                    <p>{charity.rating}</p>
+                    {/* <div className='my-card' key={index}>
+                        <button className='remove-button' onClick={() => this.removeCharity(charity.ch_id)}>X</button>
+                        
+                        <img src={charity.img} alt=''/>
+                        <p>{charity.name}</p>
+                        <p>{charity.mission}</p>
+                        <p>{charity.tagline}</p>
+                        <p>{charity.category}</p>
+                        <p>{charity.cause}</p>
+                        <p>{charity.rating}</p>
+                    </div> */}
+
                 </div>
             )
         })
         return (
             <div className='mylist-container'>
-                
-                {showMyList}
-
+                <div className='mylist-title'>+myList</div>
+            
+                <div className='mylist-cards-container'>
+                    {/* <GridCards /> */}
+                    {showMyList}
+                </div>
             </div>
         )
     }

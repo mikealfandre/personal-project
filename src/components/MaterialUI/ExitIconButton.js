@@ -10,13 +10,16 @@ const styles = theme => ({
         margin: theme.spacing.unit,
         transform: 'scale(1.3)',
         [theme.breakpoints.up('xs')]: {
-            margin: '0px',
+            marginTop: '50px'
+        },
+        [theme.breakpoints.up('md')]: {
+            marginTop: '0px'
         }
     },
     input: {
         display: 'none',
         [theme.breakpoints.up('md')]: {
-            margin: '00px',
+            marginTop: '0px',
         }
     },
     

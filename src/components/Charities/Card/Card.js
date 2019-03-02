@@ -12,7 +12,7 @@ import FabButton from './../../MaterialUI/FabButton'
 
 const Card = (props) => {
     
-    const { charity, index, img, name, mission, tagline, category, cause, rating, handleAddFn } = props;
+    const { charity, index, img, name, mission, tagline, category, cause, rating, handleAddFn } = props; 
     return (
         
        <div>

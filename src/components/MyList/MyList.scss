@@ -1,12 +1,40 @@
 // @import "./../../global-styles/card";
 
+$breakpoint-iphonex: 375px;
+
 .mylist-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mylist-cards-container{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     justify-content: space-evenly; 
     width: 100%;
     align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.mylist-title{
+    display: flex;
+    justify-content: center;
+    // width: 8%;
+    // height: 15px;
+    font-family: 'gotham';
+    font-size: 30px;
+    margin-top: 60px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #ffffff;
+    @media (max-width: $breakpoint-iphonex){
+        // padding-bottom: 15px;
+        min-height: 42px;
+        margin-top: 100px;
+        font-size: 26px;
+        width: 15%;
+    }
+
 }
 .my-card{
     width: 40%;
@@ -17,7 +45,7 @@
     display: flex;
     flex-flow: column;
     justify-content: flex-start;
-    box-shadow: 0px 7px 10px rgba(black, 0.5);
+    box-shadow: 0px 7px 10px rgba(black, 0.5); 
     font-family: Avenir;
 }
 img {
