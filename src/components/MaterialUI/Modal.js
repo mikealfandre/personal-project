@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
 import Login from '../MaterialUI/Login'
 
 function rand() {
@@ -60,7 +58,7 @@ class SimpleModal extends React.Component {
                     onClose={handleClose}
                 >
                     <div  className={classes.paper}>
-                        <Login email={email} handleInput={handleInput} handleClose={handleClose} password={password} register={register} login={login}/>
+                        <Login email={email} handleInput={handleInput} handleClose={handleClose} password={password} register={register} login={login}/> 
                         <SimpleModalWrapped />
                     </div>
                 </Modal>

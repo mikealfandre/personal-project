@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
+import SignInSnackbar from '../MaterialUI/SignInSnackbar'
 
 
 const styles = theme => ({
@@ -19,15 +20,40 @@ const styles = theme => ({
 
 });
 
-function FloatingActionButtons(props) {
-    const { classes, charity, handleAddFn } = props;
-    return (
-        <div>
-            <Fab className={classes.fab} onClick={() => handleAddFn(charity)} >
-                +
-            </Fab>
-        </div>
-    );
+class FloatingActionButtons extends Component{
+    constructor(props){
+        super(props)
+        this.state = { 
+            loggedin: false
+        }
+    }
+    render(){
+        const { classes, charity, handleAddFn, loggedin } = this.props;
+
+        return(
+                <div> 
+                    {
+                        loggedin
+                        ?
+                        <Fab className={classes.fab} onClick={() => handleAddFn(charity)} >
+                            +
+                        </Fab>
+                        :
+                        <SignInSnackbar/>
+                        
+                        // <Fab className={classes.fab} >
+                        //     <SignInSnackbar/>
+                                
+                        // </Fab>
+                        
+
+
+                    }
+                </div>
+
+        )
+    }
+    
 }
 
 FloatingActionButtons.propTypes = {

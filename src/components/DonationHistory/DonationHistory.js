@@ -1,16 +1,7 @@
 import React, { Component } from 'react'
 import './DonationHistory.scss'
 import axios from 'axios'
-import styled from 'styled-components'
 import DonationTable from './../MaterialUI/DonationTable'
-
-const buttoncolor = 'red'
-
-const GetPhotoButton = styled.button`
-    font-size: 30px;
-    color: ${buttoncolor};
-
-`
 
 
 class DonationHistory extends Component {
@@ -38,7 +29,7 @@ class DonationHistory extends Component {
         return (
             <div className='DonationHistory-container'>
 
-            <DonationTable donations={this.state.donations}/>
+            <DonationTable donations={donations}/>
                 
 
                 {/* {

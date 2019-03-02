@@ -6,7 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+
 
 const styleTitle = {
     color: 'white', 
@@ -34,7 +34,6 @@ const styles = theme => ({
         fontSize: '24px',
         marginRight: '0px',
         padding: '0px',
-        overflowX: 'auto',
         // fontFamily: 'GothamExLight',
         [theme.breakpoints.up('xs')]: {
             marginTop: '5px',

@@ -4,14 +4,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import AddIcon from '@material-ui/icons/AddCircleRounded';
 import GiftcardIcon from '@material-ui/icons/CardGiftcardRounded';
@@ -104,7 +100,7 @@ class PrimarySearchAppBar extends React.Component {
     };
 
     handleProfileMenuOpen = event => {
-        this.setState({ anchorEl: event.currentTarget });
+        this.setState({ anchorEl: event.currentTarget }); 
     };
 
     handleMenuClose = () => {

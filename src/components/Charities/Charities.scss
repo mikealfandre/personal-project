@@ -11,10 +11,10 @@ $card-width-mobile: 240px;
 $card-height-mobile: 450px;
 
 $card-width-small: 340px;
-$card-height-small: px;
+$card-height-small: 400px;
 
-$card-width-medium: 340px;
-$card-height-medium: 500px;
+$card-width-medium: 600px;
+$card-height-medium: 345px;
 
 $card-width-wide: 700px;
 $card-height-wide: 500px;
@@ -67,7 +67,7 @@ $breakpoint-iphonex: 375px;
         width: $card-width-mobile;
         min-height: $card-height-mobile;
       }
-    @media (min-width: 1200px){
+    @media (min-width: 1300px){
         min-height: $card-height-wide;
     }
     
@@ -112,7 +112,7 @@ $i: 0;
         width: $card-width-medium;
         min-height: $card-height-medium;
       }
-      @media (min-width: 1200px){
+      @media (min-width: 1300px){
         width: $card-width-wide;
         min-height: $card-height-wide;
       }
@@ -128,16 +128,15 @@ $i: 0;
           top: -21px;
           //right: 10px DOESN'T WORK
           left: 73%;
-
           transform: scale(.7);
         }
         @media (min-width: 376px){
           position: absolute;
           top: -6%;
-          left: -9%;
+          left: 68%;
           transform: scale(.8);
         }
-        @media (min-width: 1200px){
+        @media (min-width: 1300px){
           position: absolute;
           top: -3%;
           //right: 10px DOESN'T WORK
@@ -223,7 +222,7 @@ $i: 0;
         width: $card-width-medium;
         min-height: $card-height-medium;
       }
-  @media (min-width: 1200px){
+  @media (min-width: 1300px){
         width: $card-width-wide;
         min-height: $card-height-wide;
   }
@@ -244,7 +243,13 @@ $i: 0;
         margin-left: 25px;
         transform: scale(1.25);
     }
-    @media (min-width: 1200px){
+    @media (min-width: 376px){
+       top: 465px;
+        transform: scale(1.45);
+        left: -80px;
+        margin-left: 150px;
+      }
+    @media (min-width: 1300px){
         top: 620px;
         transform: scale(1.45);
         left: -50px;
@@ -328,6 +333,10 @@ svg {
         right: 8%;
         top: 40%;
     }
+     @media (min-width: 376px){
+        right: 8%;
+        top: 47%;
+    }
     @media (max-width: 960px){
         right: 4%;
         top: 32%;
@@ -347,6 +356,10 @@ svg {
   @media (max-width: 1529px){
         left: 8%;
         top: 40%;
+    }
+  @media (min-width: 376px){
+        left: 8%;
+        top: 47%;
     }
   @media (max-width: 960px){
         left: 4%;

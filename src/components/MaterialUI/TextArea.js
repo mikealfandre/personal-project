@@ -27,7 +27,7 @@ function Inputs(props) {
                     <div className='input-section'>
                         <Input
                             value={email}
-                            onChange={(e) => handleEmailChange(e.target.value)}
+                            onChange={(e) => handleEmailChange(e.target.value)} 
                             className={classes.input}
                             inputProps={{
                                 'aria-label': 'Description',

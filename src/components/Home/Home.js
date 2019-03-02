@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import {updateUser} from './../../Ducks/reducer'
 import axios from 'axios'
 import AppBarMenu from '../MaterialUI/AppBarMenu'
-import Login from './../MaterialUI/Login'
 import Modal from '../MaterialUI/Modal'
 
 
@@ -65,7 +64,10 @@ class Home extends Component{
         axios.post('/auth/login', {email, password})
             .then((res) => {
                 console.log('login',res.data)
-                this.props.updateUser(res.data) 
+                this.props.updateUser(res.data)
+                this.setState({
+                    loggedin: true
+                })
             })
             
     }
@@ -76,8 +78,8 @@ class Home extends Component{
         })
     }
     render(){
-        console.log('email', this.state.email)
-        console.log('password', this.state.password)
+        console.log('Loggedin?', this.state.loggedin)
+        
         return(
             <div className='home-container'> 
 
@@ -93,7 +95,7 @@ class Home extends Component{
                 <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>
                 
                 <nav>                      
-                    <Link to='/profile/mylist' className="link"><span>+</span>myList</Link> 
+                    <Link to='/profile/mylist' className="link"><span>+</span>myList</Link>  
                     <Link to='/profile/preferences' className="link">profile</Link> 
                     <div>
                         <button onClick={this.handleOpen} className="create-account-button">create account</button> 
@@ -106,7 +108,7 @@ class Home extends Component{
             </div>
                 
   
-                <Charities/> 
+                <Charities loggedin={this.state.loggedin}/> 
             </div>
         )
     }

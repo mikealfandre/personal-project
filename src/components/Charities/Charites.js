@@ -43,19 +43,19 @@ async componentDidMount(){
 
         })
 
-    for (let i = 0; i < this.state.charities.length; i++) {
-    let query = this.state.charities[i].charityName
-    console.log('Charities.mission', this.state.charities)
-        axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
-        .then((res) => {
-            this.state.charities[i].img = res.data.urls.regular
-            //THIS ONLY WORKS IF I SET STATE...WHY? IM SETTING STATE THAT DOESNT EVEN EXIST ON THIS COMPONENT! WHATS THE BEST WAY TO DO TO AXIOS REQUESTS
-            this.setState({
-                photo: res.data.urls.small
-            })
-        })
-    console.log('Charities.mission', this.state.charities)
-    }   
+    // for (let i = 0; i < this.state.charities.length; i++) {
+    // let query = this.state.charities[i].charityName
+    // console.log('Charities.mission', this.state.charities)
+    //     axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
+    //     .then((res) => {
+    //         this.state.charities[i].img = res.data.urls.regular
+    //         //THIS ONLY WORKS IF I SET STATE...WHY? IM SETTING STATE THAT DOESNT EVEN EXIST ON THIS COMPONENT! WHATS THE BEST WAY TO DO TO AXIOS REQUESTS
+    //         this.setState({
+    //             photo: res.data.urls.small
+    //         })
+    //     })
+    // console.log('Charities.mission', this.state.charities)
+    // }   
 }
 
 handleDonation = async (value) => {
@@ -129,6 +129,7 @@ prevCharity = () => {
 
 render() {
     const {charities, charity} = this.state 
+    const {loggedin} = this.props
     console.log(this.state.timestamp)
     
             
@@ -169,11 +170,11 @@ render() {
                     
 
                         
-
+ 
                         <div className="cards-slider-wrapper" style={{
                             'transform': `translateX(-${charity.index * (100 / charities.length)}%)`}}>
                             {
-                                charities.map((charity, index) => <Card key={index} charity={charity} img={charity.img} name={charity.charityName} mission={charity.mission} tagline={charity.tagLine} category={charity.category.categoryName} cause={charity.cause.causeName} rating={charity.currentRating.rating} index={charity.index} handleAddFn={this.handleAdd} />)
+                                charities.map((charity, index) => <Card key={index} loggedin={loggedin} charity={charity} img={charity.img} name={charity.charityName} mission={charity.mission} tagline={charity.tagLine} category={charity.category.categoryName} cause={charity.cause.causeName} rating={charity.currentRating.rating} index={charity.index} handleAddFn={this.handleAdd} />)
                             }       
                         </div>
                         

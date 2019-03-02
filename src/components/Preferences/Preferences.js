@@ -23,7 +23,7 @@ class Preferences extends Component {
     
 
     componentDidMount() {
-        const {giveuser_id, email, wants_statement, wants_updates} = this.props
+        const {giveuser_id, email, wants_statement, wants_updates} = this.props 
         this.setState({
             giveuser_id,
             email: email,
