@@ -9,6 +9,7 @@ import AppBarMenu from '../MaterialUI/AppBarMenu'
 import Modal from '../MaterialUI/Modal'
 
 
+
 class Home extends Component{
     constructor(props){
         super(props)
@@ -17,7 +18,8 @@ class Home extends Component{
             email: '',
             password: '',
             loggedin: false,
-            open: false
+            open: false,
+            
         }
     }
     componentDidMount(){
@@ -40,6 +42,7 @@ class Home extends Component{
         }
 
     }
+   
     handleOpen = () => {
         this.setState({ open: true });
     };
@@ -86,6 +89,7 @@ class Home extends Component{
             <AppBarMenu/> 
             
             
+            
             {/* <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' /> */}
             {/* <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' /> */}
             {/* <button onClick={this.register}>register</button>
@@ -94,18 +98,31 @@ class Home extends Component{
             <div className='top-bar'>
                 <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>
                 
-                <nav>                      
-                    <Link to='/profile/mylist' className="link"><span>+</span>myList</Link>  
-                    <Link to='/profile/preferences' className="link">profile</Link> 
-                    <div>
-                        <button onClick={this.handleOpen} className="create-account-button">create account</button> 
-                        <Modal open={this.state.open} handleClose={this.handleClose} email={this.state.email} handleInput={this.handleInput} password={this.state.password} register={this.register} login={this.login}>
-                            Create axccount please                        
-                        </Modal>
+                <nav> 
+                    {
+                        this.state.loggedin
+                        ?
+                        <div>
+                                <Link to='/profile/mylist' className="link"><span>+</span>myList</Link>  
+                                <Link to='/profile/preferences' className="link">account</Link> 
+                        </div>
+                        :
+                        <div>
+                            <button onClick={this.handleOpen} className="create-account-button">create account</button> 
+                            <Modal open={this.state.open} handleClose={this.handleClose} email={this.state.email} handleInput={this.handleInput} password={this.state.password} register={this.register} login={this.login}>
+                                                       
+                            </Modal>
 
-                    </div>
+                        </div>
+
+
+                    }                     
                 </nav>
             </div>
+                <button onClick={this.handleOpen} className="create-account-button-mobile">create account</button>
+                <Modal open={this.state.open} handleClose={this.handleClose} email={this.state.email} handleInput={this.handleInput} password={this.state.password} register={this.register} login={this.login}>
+
+                </Modal>
                 
   
                 <Charities loggedin={this.state.loggedin}/> 

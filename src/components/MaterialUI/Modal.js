@@ -8,24 +8,25 @@ function rand() {
     return Math.round(Math.random() * 20) - 10;
 }
 
-function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+function getModalStyle(theme) {
+    const top = 5;
+    const left = 35;
+    // const top = 50 + rand();
+    // const left = 50 + rand();
 
     return {
         top: `${top}%`,
         left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
+        
     };
 }
 
 const styles = theme => ({
     paper: {
         position: 'absolute',
-        left: '35%',
-        right: '45%',
-        top: '55px',
-        width: theme.spacing.unit * 50,
+        left: '15%',
+        width: '30%',
+        // width: theme.spacing.unit * 50,
         // height: theme.spacing.unit * 70,
         // backgroundColor: theme.palette.background.paper,
         background: 'transparent',
@@ -36,10 +37,11 @@ const styles = theme => ({
         [theme.breakpoints.up('xs')]: {
             // marginLeft: theme.spacing.unit * 3,
             // width: 'auto',
-            left: '15%',
-            right: '15%'
+            left: '1%',
+            // right: '1%'
         }
     },
+    
 });
 
 class SimpleModal extends React.Component {
@@ -57,7 +59,7 @@ class SimpleModal extends React.Component {
                     open={open}
                     onClose={handleClose}
                 >
-                    <div  className={classes.paper}>
+                    <div className={classes.paper} style={getModalStyle()} >
                         <Login email={email} handleInput={handleInput} handleClose={handleClose} password={password} register={register} login={login}/> 
                         <SimpleModalWrapped />
                     </div>

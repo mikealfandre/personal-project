@@ -26,16 +26,12 @@ constructor(props) {
 
 async componentDidMount(){
     
-    
-    console.log(process.env.REACT_APP_charity_url)
-    console.log(process.env.REACT_APP_UNSPLASH_ID)
-    
     await axios.get(`${process.env.REACT_APP_charity_url}`)
         .then((res) => {
             for (let i = 0; i < res.data.length; i++) {
                 res.data[i].index = i
             }
-            console.log('res.data', res.data)
+            
             this.setState({
                 charities: res.data,
                 charity: res.data[0]
@@ -73,19 +69,16 @@ handleDonation = async (value) => {
     const month = stamp.getMonth();
     const year = stamp.getFullYear();
     const sendTimeStamp = (month+1) + ' / ' + day + ' / ' + year
-    console.log('sendtimestamp', sendTimeStamp)
-    console.log('stamp', stamp)
+    
 
     await this.setState({
         timestamp: sendTimeStamp
     })
-    console.log('state timestamp', this.state.timestamp)
+    
     
     const {amount, timestamp} = this.state
     const {charityName : charity_name} = this.state.charity
 
-    // console.log('State Donation after Click', this.state.amount)
-    // console.log('timestamp', this.state.timestamp)
 
     axios.post('/api/donations', {amount, timestamp, charity_name})
         .catch((err) => console.log('HandD Error', err))
@@ -96,8 +89,7 @@ handleDonation = async (value) => {
 handleAdd = (charity) => {
     axios.post('/api/insertcharity', {charity})
     .then((res) => {
-        console.log('res.data.cid?', res.data)
-        console.log('res.data.cid2?', res.data[0].ch_id)
+        
         axios.post(`/api/mylist/${res.data[0].ch_id}`)
             .then((res) => {
                 this.setState({
@@ -114,11 +106,10 @@ nextCharity = () => {
     this.setState({
         charity: this.state.charities[newIndex]
     })
-    console.log('state charity After',this.state.charity)
+    
 }
 
 prevCharity = () => {
-    console.log('index PREV', this.state.charity.index)
     
     const newIndex = this.state.charity.index-1
     this.setState({
@@ -130,7 +121,7 @@ prevCharity = () => {
 render() {
     const {charities, charity} = this.state 
     const {loggedin} = this.props
-    console.log(this.state.timestamp)
+    
     
             
     return (

@@ -17,7 +17,7 @@ class Switches extends React.Component {
                 
                 <div className='switch-1'>
                     <Switch
-                        value={this.props.wants_statement} 
+                        value={this.props.wants_statement}  
                         checked={this.props.wants_statement}
                         onChange={this.props.handleStToggle}
                         color="primary"

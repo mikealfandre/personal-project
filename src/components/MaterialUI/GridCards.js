@@ -22,13 +22,14 @@ const styles = theme => ({
 });
 
 function CenteredGrid(props) {
-    const { classes, charity, index } = props;
+    const { classes, charity, index, removeCharity } = props;
 
     return (
         <div className={classes.root}>
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                        <Paper className={classes.paper} key={index}>
+                        <Paper className={classes.paper} key={index}> 
+                    <button className='remove-button' onClick={() => removeCharity(charity.ch_id)}>X</button>
                             <div className='info-container-ml'>
                                     <img src={charity.img} className='img-ml' alt='' />
                                 <div className='info-ml'>

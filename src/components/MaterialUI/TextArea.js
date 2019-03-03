@@ -20,7 +20,7 @@ const styles = theme => ({
 function Inputs(props) {
     const { classes, email, editing, toggleChange, cancelEmail, handleEmailChange } = props;
     return (
-        <div className={classes.container}>
+        <div className={classes.container}> 
             {
                 editing
                     ?

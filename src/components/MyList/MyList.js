@@ -46,7 +46,7 @@ class MyList extends Component {
             // console.log('Charity', charity)
             return (
                 <div>
-                    <GridCards removeCharity={this.removeCharity} charity={charity} index={index}/>
+                    <GridCards removeCharity={this.removeCharity} charity={charity} index={index}/> 
                     
                     {/* <div className='my-card' key={index}>
                         <button className='remove-button' onClick={() => this.removeCharity(charity.ch_id)}>X</button>

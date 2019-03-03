@@ -33,11 +33,12 @@ $breakpoint-iphonex: 375px;
     border-radius: 3px;
     // color: $fc;
     @media (max-width: $breakpoint-iphonex){
-        // overflow-x: hidden;
+        overflow-x: hidden;
         margin: 12px;
         margin-top: 7px;  
         // background: -webkit-linear-gradient(-45deg, rgb(136, 17, 17),rgb(147, 179, 201));
     }
+    
 }
 .app-bar-menu{
         // position: relative;
@@ -62,7 +63,7 @@ $breakpoint-iphonex: 375px;
     // align-content: center;
     // justify-content: flex-end;
     @media (max-width: $breakpoint-iphonex){ 
-        display: none;
+        visibility: hidden;
     }
     @media (min-width: 1000px){
         padding-left: 3%;
@@ -154,6 +155,24 @@ $breakpoint-iphonex: 375px;
     }
     
 }
+.create-account-button-mobile{
+            background: transparent;
+            border: none;
+            margin-left: 30px;
+            margin-top: -60px;
+            padding: 0px;
+            font-family: 'gotham rounded';
+            font-weight: 'bold';
+            font-size: inherit;
+            letter-spacing: inherit;
+            color: $fc;
+            cursor: pointer;
+            @media (min-width: 376px){ 
+                 display: none;
+            }
+        }
+
+
 
             
 
