@@ -65,7 +65,7 @@ class MyList extends Component {
         })
         return (
             <div className='mylist-container'>
-                <div className='mylist-title'>+myList</div>
+                {/* <div className='mylist-title'>+myList</div> */}
             
                 <div className='mylist-cards-container'>
                     {/* <GridCards /> */}

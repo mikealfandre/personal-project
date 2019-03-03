@@ -85,7 +85,7 @@ $breakpoint-iphonex: 375px;
       object-position: 0px 0px;
       position: absolute;
       top: -1px;
-      -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(46,46,46,1)), to(rgba(46,46,46,0)));
+      -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(46,46,46,1)), to(rgba(46,46,46,0))); 
       mask-image: linear-gradient(to bottom, rgba(46,46,46,1), rgba(46,46,46,0));
     }
 
@@ -163,7 +163,9 @@ $i: 0;
         width: 100%;
         position: absolute;
         bottom: 0px;
+        bottom: 0px;
         height: 100%;
+        overflow-y: scroll;
         
         // border: 3px solid red;
         // background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(226, 226, 226, 0)), color-stop(1, rgba(226, 226, 226, 1)));
@@ -172,12 +174,38 @@ $i: 0;
       .info {
         padding: 25px;
         position: absolute;
-        bottom: 0px;
+        // bottom: 0px;
+        top: 40%;
         @media (max-width: $breakpoint-iphonex){
           position: absolute;
           top: 25%;
           overflow-y: scroll;   
         }
+        p{
+          font-size: 14px;
+        }
+        span{
+          color: black;
+          font-weight: normal;
+          margin-left: 5px;
+        }
+        .title{
+          font-size: 28px;
+          font-family: 'gotham rounded';
+          letter-spacing: -.5px;
+          color: rgb(56, 56, 56);
+          margin-bottom: 15px;
+        }
+        .sub{
+          color: #17425E;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .mission {
+      font-size: 12px;
+      line-height: 19px;
+      font-family: gotham;
+      }
       }
       
     }

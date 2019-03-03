@@ -130,8 +130,8 @@ export default connect(mapStateToProps, {updateUser})(Preferences)
 
 //WITHOUT USING MATERIAL UI COMPONENTS
 
-{/* <input type='checkbox' value={wants_statement} onChange={() => this.handleStToggle()} checked={this.state.wants_statement}/><p>I would like to receive monthly donation statements</p>
-<input type='checkbox' value={wants_updates} onChange={() => this.handleUpToggle()} checked={this.state.wants_updates} /><p>I would like to receive updates on charities I have donated to</p> */}
+//<input type='checkbox' value={wants_statement} onChange={() => this.handleStToggle()} checked={this.state.wants_statement}/><p>I would like to receive monthly donation statements</p>
+//<input type='checkbox' value={wants_updates} onChange={() => this.handleUpToggle()} checked={this.state.wants_updates} /><p>I would like to receive updates on charities I have donated to</p> 
 
 
 // editing

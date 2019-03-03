@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 
 const styleTitle = {
     color: 'white', 
-    fontSize: '13px',
+    fontSize: '16px',
     fontFamily: 'GothamBold',
     fontWeight: 'bold',
     padding: '0px'
@@ -18,7 +18,7 @@ const styleTitle = {
 };
 const style = {
     color: 'white', 
-    fontSize: '12px',
+    fontSize: '15px',
     fontFamily: 'GothamExLight',
     fontWeight: 'Regular',
     padding: '0px'
@@ -34,6 +34,7 @@ const styles = theme => ({
         fontSize: '24px',
         marginRight: '0px',
         padding: '0px',
+        marginBottom: '100px',
         // fontFamily: 'GothamExLight',
         [theme.breakpoints.up('xs')]: {
             marginTop: '5px',

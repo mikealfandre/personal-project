@@ -52,7 +52,7 @@ class LoginTab extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid container justify="center" style={{ marginTop: '10px' }}>
-                        <Button onClick={register} variant="outlined" color="primary" style={{ textTransform: "none" }}>Create Account</Button>
+                        <Button onClick={() => { register(); handleClose()}} variant="outlined" color="primary" style={{ textTransform: "none" }}>Create Account</Button>
                         <div className={classes.orDiv} > or </div>
                         <Button onClick={() => {login(); handleClose()}} onClose={handleClose} variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
                     </Grid>

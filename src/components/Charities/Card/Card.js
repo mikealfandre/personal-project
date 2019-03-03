@@ -5,20 +5,10 @@ import { connect } from 'react-redux';
 
 
 class Card extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            
-        }
-    }
-    componentDidMount(){
-        this.setState({
-            giveuser_id: this.props.giveuser_id
-        })
-        console.log('Card Comp State', this.state.giveuser_id) 
-    }
+    
+    
     render(){
-        const { charity, index, img, name, mission, tagline, category, cause, rating, handleAddFn, loggedin } = this.props;  
+        const { charity, index, img, name, mission, tagline, category, cause, handleAddFn, loggedin } = this.props;  
         return(
         <div>
              
@@ -32,12 +22,12 @@ class Card extends Component{
                      <div className='info-container'> 
                          
                          <div className='info'>
-                             <p>{name}</p>
-                             <p>{tagline}</p>
-                             <p>{category}</p>
-                             <p>{cause}</p>
-                             <p>{rating}</p>
-                             <p className='mission'>{mission}</p>
+                            <p className='title'>{name}</p>
+                                {/* <p>{name}</p> */}
+                            <p className='sub'>Tagline:  <span>{tagline}</span></p>  
+                            <p className='sub'>Category:  <span>{category}</span></p>  
+                            <p className='sub'>Cause:  <span>{cause}</span></p>  
+                            <p className='sub'>Mission:  <span className='mission'>{mission}</span></p>  
                          </div>
                      </div>
                  </div> 

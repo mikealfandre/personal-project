@@ -25,7 +25,9 @@ class Home extends Component{
     componentDidMount(){
         const {giveuser_id} = this.props
         if(giveuser_id){
-            console.log('ID found, success')
+            this.setState({
+                loggedin: true
+            })
             // this.props.history.push('/private') 
         }else{
             axios.get('/auth/user')
@@ -34,7 +36,6 @@ class Home extends Component{
                     // this.props.history.push('/private')
                 })
                 .catch(err => {
-                    console.log('No user Found', err)
                     this.setState({
                         loggedin: false 
                     })
@@ -81,7 +82,6 @@ class Home extends Component{
         })
     }
     render(){
-        console.log('Loggedin?', this.state.loggedin)
         
         return(
             <div className='home-container'> 

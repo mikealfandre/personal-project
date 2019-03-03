@@ -4,9 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Login from '../MaterialUI/Login'
 
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
 
 function getModalStyle(theme) {
     const top = 5;

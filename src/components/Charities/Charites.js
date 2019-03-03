@@ -23,18 +23,45 @@ constructor(props) {
         timestamp: []      
     }
 }
+    shuffleCards =(array)=> {
+
+        let i = array.length, j = 0, temp;
+
+        while (i--) {
+            j = Math.floor(Math.random() * (i + 1));
+
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+
+        }
+        return array;
+
+    }
 
 async componentDidMount(){
     
-    await axios.get(`${process.env.REACT_APP_charity_url}`)
+    
+    await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=10&rated=true&minRating=2&scopeOfWork=NATIONAL`)
         .then((res) => {
-            for (let i = 0; i < res.data.length; i++) {
-                res.data[i].index = i
+            // for (let i = 0; i < res.data.length; i++) {
+            //     res.data[i].index = i
+            // }
+            // console.log('after response res.data', res.data) 
+
+           let shuffleArray = this.shuffleCards(res.data)
+            
+            // console.log('after shuffle res.data', shuffleArray)
+
+            for (let i = 0; i < shuffleArray.length; i++) {
+                shuffleArray[i].index = i
             }
+
             
             this.setState({
-                charities: res.data,
-                charity: res.data[0]
+                charities: shuffleArray,
+                charity: shuffleArray[0]
+                // charity: res.data[0]
             })    
 
         })
@@ -51,7 +78,9 @@ async componentDidMount(){
     //         })
     //     })
     // console.log('Charities.mission', this.state.charities)
-    // }   
+    // } 
+    
+    
 }
 
 handleDonation = async (value) => {
@@ -119,7 +148,7 @@ prevCharity = () => {
 
 
 render() {
-    const {charities, charity} = this.state 
+    const {charities, charity} = this.state  
     const {loggedin} = this.props
     
     

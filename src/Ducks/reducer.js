@@ -7,7 +7,6 @@ const initialState = {
     mylist: []
 }
 
-console.log('redux mylist', initialState.mylist)
 
 const UPDATE_MYLIST = 'UPDATE_MYLIST'
 const REMOVE_CHARITY = 'REMOVE_CHARITY'
