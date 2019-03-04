@@ -42,7 +42,7 @@ constructor(props) {
 async componentDidMount(){
     
     
-    await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=5&rated=true&minRating=2&scopeOfWork=NATIONAL`)
+    await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=15&rated=true&minRating=2&scopeOfWork=NATIONAL`)
         .then((res) => {
             // for (let i = 0; i < res.data.length; i++) {
             //     res.data[i].index = i
