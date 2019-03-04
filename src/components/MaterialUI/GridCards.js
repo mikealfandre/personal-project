@@ -29,7 +29,7 @@ function CenteredGrid(props) {
             <Grid container spacing={24}>
                 <Grid item xs={12}>
                         <Paper className={classes.paper} key={index}> 
-                    <button className='remove-button' onClick={() => removeCharity(charity.ch_id)}>X</button>
+                    <button className='remove-button' onClick={() => removeCharity(charity.ch_id)}>-</button>
                             <div className='info-container-ml'>
                                     <img src={charity.img} className='img-ml' alt='' />
                                 <div className='info-ml'>

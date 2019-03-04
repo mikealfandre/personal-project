@@ -5,7 +5,7 @@ $breakpoint-iphonex: 375px;
 
 .profile-container {   
     // width: 100%;
-    min-height: 100vh;
+    min-height: 800px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,10 @@ $breakpoint-iphonex: 375px;
     .link{
         text-decoration: none;
         margin: 0px;
+        transition:all 0.4s ease;
+        &:hover{
+        opacity:0.5; 
+        }
         // color: red;
     }
     
@@ -44,13 +48,17 @@ $breakpoint-iphonex: 375px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-evenly;
-        font-size: 24px;
+        justify-content: space-between;
+        font-size: 22px;
         width: 100%;
+        padding: 0px 25% 0px 25%;
+        
         @media (max-width: $breakpoint-iphonex){
             justify-content: space-between;
-            font-size: 13px;
-            
+            font-size: 13px;   
+        }  
+        @media (max-width: 959px){
+              display: none;
         }  
     }
 }

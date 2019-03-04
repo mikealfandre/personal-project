@@ -119,6 +119,7 @@ class Home extends Component{
                     }                     
                 </nav>
             </div>
+                <p className='discover-header'>Discover <span>&</span> donate to charities</p>
                 <button onClick={this.handleOpen} className="create-account-button-mobile">create account</button>
                 <Modal open={this.state.open} handleClose={this.handleClose} email={this.state.email} handleInput={this.handleInput} password={this.state.password} register={this.register} login={this.login}>
 

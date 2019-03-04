@@ -42,12 +42,12 @@ constructor(props) {
 async componentDidMount(){
     
     
-    await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=10&rated=true&minRating=2&scopeOfWork=NATIONAL`)
+    await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=5&rated=true&minRating=2&scopeOfWork=NATIONAL`)
         .then((res) => {
             // for (let i = 0; i < res.data.length; i++) {
             //     res.data[i].index = i
             // }
-            // console.log('after response res.data', res.data) 
+            console.log('after response res.data', res.data) 
 
            let shuffleArray = this.shuffleCards(res.data)
             
@@ -66,19 +66,19 @@ async componentDidMount(){
 
         })
 
-    // for (let i = 0; i < this.state.charities.length; i++) {
-    // let query = this.state.charities[i].charityName
-    // console.log('Charities.mission', this.state.charities)
-    //     axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
-    //     .then((res) => {
-    //         this.state.charities[i].img = res.data.urls.regular
-    //         //THIS ONLY WORKS IF I SET STATE...WHY? IM SETTING STATE THAT DOESNT EVEN EXIST ON THIS COMPONENT! WHATS THE BEST WAY TO DO TO AXIOS REQUESTS
-    //         this.setState({
-    //             photo: res.data.urls.small
-    //         })
-    //     })
-    // console.log('Charities.mission', this.state.charities)
-    // } 
+    for (let i = 0; i < this.state.charities.length; i++) {
+    let query = this.state.charities[i].cause.causeName
+    console.log('Charities.mission', this.state.charities)
+        axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
+        .then((res) => {
+            this.state.charities[i].img = res.data.urls.regular
+            //THIS ONLY WORKS IF I SET STATE...WHY? IM SETTING STATE THAT DOESNT EVEN EXIST ON THIS COMPONENT! WHATS THE BEST WAY TO DO TO AXIOS REQUESTS
+            this.setState({
+                photo: res.data.urls.small
+            })
+        })
+    console.log('Charities.mission', this.state.charities)
+    } 
     
     
 }

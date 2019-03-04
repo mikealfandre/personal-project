@@ -205,7 +205,7 @@ $i: 0;
       font-size: 12px;
       line-height: 19px;
       font-family: gotham;
-      }
+        }
       }
       
     }
@@ -278,7 +278,7 @@ $i: 0;
         margin-left: 150px;
       }
     @media (min-width: 1300px){
-        top: 620px;
+        top: 620px; 
         transform: scale(1.45);
         left: -50px;
         margin-left: 150px;
@@ -398,7 +398,7 @@ svg {
 .left:hover polyline,
 .left:focus polyline {
   stroke-width: 8;
-  stroke: #a200ff;
+  stroke: #1197EC;
 }
 
 .left:active polyline {
@@ -409,7 +409,7 @@ svg {
 .right:hover polyline,
 .right:focus polyline {
   stroke-width: 8;
-  stroke: #a200ff;
+  stroke: #1197EC;
 }
 
 .right:active polyline {

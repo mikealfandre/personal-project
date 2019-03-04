@@ -11,12 +11,13 @@ const styles = theme => ({
         bottom: '-80px',
         left: '160px',
         zIndex: '1',
-        fontFamily: 'gotham',
-        fontSize: '12px',
+        fontFamily: 'gothambold',
+        fontSize: '14px',
+        fontWeight: 'bold',
         transform: 'scale(1.6)',
-        textShadow: '2px 2px 8px black'
+        textShadow: '1px 1px 2px black',
         // color: 'black',
-        // background: '#FBD103',
+        // background: '#1197EC',
     },
 
 });

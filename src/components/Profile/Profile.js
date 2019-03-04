@@ -18,11 +18,11 @@ class Profile extends Component {
                     {/* <p>exit</p> */}
                 </div>
                 <nav>
-                    <ul className='profile-ul'>
+                    <ul className='profile-ul fade'>
 
-                        <Link to='/profile/preferences' className='link'><li>preferences</li></Link>
+                        <Link to='/profile/preferences' className='link'><li>account</li></Link>
                         <Link to='/profile/mylist' className='link'><li>myList</li></Link>
-                        <Link to='/profile/donation-history' className='link'><li>Donation History</li></Link>
+                        <Link to='/profile/donation-history' className='link'><li>donation history</li></Link>
                         
                     </ul>
                 </nav>

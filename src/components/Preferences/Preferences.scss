@@ -5,11 +5,13 @@ $breakpoint-iphonex: 375px;
 .preferences-container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    justify-content: flex-start;
+    width: 100%;
     font-family: 'gotham rounded';
     color: white;
     align-items: flex-start;
     padding-left: 15%;
+    margin-top: 80px;
     // padding-right: 25%;
     @media (max-width: $breakpoint-iphonex){
         width: 100%;  
@@ -22,7 +24,7 @@ $breakpoint-iphonex: 375px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 15%;
+    margin-left: -15px;
     // border: 3px solid pink;
     // transform: scale(1.5);
     @media (max-width: $breakpoint-iphonex){
@@ -47,6 +49,7 @@ $breakpoint-iphonex: 375px;
     display: flex;
     flex-direction: column;
     margin-top: $margin-top-container;
+    margin-bottom: 50px;
     @media (max-width: $breakpoint-iphonex){
         margin-top: $margin-top-container-mobile;
     }

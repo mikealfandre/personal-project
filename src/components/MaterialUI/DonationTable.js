@@ -47,11 +47,11 @@ const styles = theme => ({
         },
         [theme.breakpoints.up('md')]: {
             
-            minWidth: '700px'
+            minWidth: '600px'
         },
         [theme.breakpoints.up('lg')]: {
             
-            minWidth: '1000px'
+            minWidth: '900px'
         }
         
     },
