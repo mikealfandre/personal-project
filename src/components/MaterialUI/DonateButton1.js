@@ -11,7 +11,7 @@ const styles = theme => ({
         // bottom: '-80px',
         // left: '0px',
         zIndex: '1',
-        fontFamily: 'gothambold',
+        fontFamily: 'roboto',
         fontSize: '14px',
         fontWeight: 'bold',
         transform: 'scale(1.6)',

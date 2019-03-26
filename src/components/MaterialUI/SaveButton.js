@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit,
-        fontFamily: 'gotham rounded',
+        fontFamily: 'roboto',
         letterSpacing: '1px'
     },
     extendedIcon: {

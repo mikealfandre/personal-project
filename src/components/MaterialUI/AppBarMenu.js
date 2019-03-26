@@ -31,7 +31,7 @@ const styles = theme => ({
         marginRight: 10,
     },
     title: {
-        fontFamily: 'gotham rounded',
+        fontFamily: 'roboto',
         
         // display: 'none',
         // [theme.breakpoints.up('sm')]: {

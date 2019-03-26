@@ -1,12 +1,12 @@
 $fc: #fbd103;
 // $fc: #444444; 
 
-$nav-ff: 'Gotham Rounded','Roboto'; 
+$nav-ff: 'roboto','Roboto'; 
 $nav-font-size: 17px;
 $ls: 1.3px; 
 
 //Logo
-$logo-f: 'Gotham Rounded','Roboto';
+$logo-f: 'roboto','Roboto';
 $breakpoint-iphonex: 375px;
 
 .home-container {   
@@ -163,7 +163,7 @@ $breakpoint-iphonex: 375px;
             // margin-left: 30px;
             margin-top: -50px;
             padding: 0px;
-            font-family: 'gotham rounded';
+            font-family: 'roboto';
             font-weight: 'bold';
             font-size: inherit;
             letter-spacing: inherit;
@@ -174,7 +174,7 @@ $breakpoint-iphonex: 375px;
             }
 }
 .discover-header{
-    font-family: gotham;
+    font-family: roboto;
     font-weight: light;
     font-size: 18px;
     margin-top: -30px;
@@ -187,7 +187,7 @@ $breakpoint-iphonex: 375px;
     left: 10.2%;
     span{
         color: black;
-        // font-family: 'gothambold';
+        // font-family: 'robotobold';
     }
     
 }

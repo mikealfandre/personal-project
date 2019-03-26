@@ -14,7 +14,7 @@ const styles = theme => ({
         top: '-20px',
         right: '-20px',
         zIndex: '1',
-        fontFamily: 'gotham rounded',
+        fontFamily: 'roboto',
         fontSize: '40px',
         color: 'black',
         background: '#FBD103',
