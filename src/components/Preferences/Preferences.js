@@ -31,7 +31,7 @@ class Preferences extends Component {
             wants_statement,
             wants_updates
         })
-        console.log('Comp Render State', this.state)
+        ('Comp Render State', this.state)
        
     }
     toggleChange = () => {
@@ -79,7 +79,7 @@ class Preferences extends Component {
 
     render() {
         const {editing, email, wants_statement, wants_updates} = this.state
-        console.log('Start State', this.state)
+        ('Start State', this.state)
         
         return (
             <div className='preferences-container'>

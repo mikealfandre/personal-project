@@ -16,7 +16,7 @@ class MyList extends Component {
     componentDidMount(){
         axios.get('/api/mylist')
             .then((res) => {
-                console.log('MyList res.data', res.data)
+                
                 this.setState({
                     mylist: res.data
                 })
@@ -30,7 +30,7 @@ class MyList extends Component {
     }
 
     removeCharity = (cid) => {
-        console.log('cid', cid)
+       
         axios.delete(`/api/mylist/${cid}`)
             .then((res) => {
                 this.setState({
@@ -42,8 +42,8 @@ class MyList extends Component {
     render() {
         
         let showMyList = this.state.mylist.map((charity, index) => {
-            // console.log('Charity.id', charity.ch_id)
-            // console.log('Charity', charity)
+            // ('Charity.id', charity.ch_id)
+            // ('Charity', charity)
             return (
                 <div>
                     <GridCards removeCharity={this.removeCharity} charity={charity} index={index}/> 

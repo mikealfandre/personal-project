@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action){
         //         return e.id === payload
         //     })
         //     newState.mylist.splice(removeIndex, 1)
-        //     console.log('New State', newState)
+        //     ('New State', newState)
         //     return newState
         case UPDATE_USER:
             return Object.assign({}, state, payload)
@@ -39,7 +39,7 @@ export default function reducer(state = initialState, action){
 
 
 export function updateMyList(charity){
-    console.log('mylist in redux action builder', charity)
+    
     return{
         type: UPDATE_MYLIST,
         payload: charity

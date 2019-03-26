@@ -44,14 +44,11 @@ async componentDidMount(){
     //Make axios request in the backend, helps with query limits and key security
     await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=15&rated=true&minRating=2&scopeOfWork=NATIONAL`)
         .then((res) => {
-            // for (let i = 0; i < res.data.length; i++) {
-            //     res.data[i].index = i
-            // }
-            console.log('after response res.data', res.data)
-
+           
+        
            let shuffleArray = this.shuffleCards(res.data)
             
-            // console.log('after shuffle res.data', shuffleArray)
+            
 
             for (let i = 0; i < shuffleArray.length; i++) {
                 shuffleArray[i].index = i
@@ -61,14 +58,14 @@ async componentDidMount(){
             this.setState({
                 charities: shuffleArray,
                 charity: shuffleArray[0]
-                // charity: res.data[0]
+                
             })    
 
         })
 
     for (let i = 0; i < this.state.charities.length; i++) {
     let query = this.state.charities[i].cause.causeName
-    console.log('Charities.mission', this.state.charities)
+    ('Charities.mission', this.state.charities)
         axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
         .then((res) => {
             this.state.charities[i].img = res.data.urls.regular
@@ -77,7 +74,7 @@ async componentDidMount(){
                 photo: res.data.urls.small
             })
         })
-    console.log('Charities.mission', this.state.charities)
+    ('Charities.mission', this.state.charities)
     } 
     
     
@@ -86,8 +83,8 @@ async componentDidMount(){
 handleDonation = async (value) => {
     
     
-    // console.log('Value', value)
-    // console.log('CharityName', charity_name)
+    // ('Value', value)
+    // ('CharityName', charity_name)
     
     await this.setState({
         amount: value
@@ -110,7 +107,7 @@ handleDonation = async (value) => {
 
 
     axios.post('/api/donations', {amount, timestamp, charity_name})
-        .catch((err) => console.log('HandD Error', err))
+        .catch((err) => ('HandD Error', err))
         
         
 }

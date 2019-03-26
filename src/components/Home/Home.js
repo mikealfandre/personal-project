@@ -55,11 +55,11 @@ class Home extends Component{
         const {email, password} = this.state
         axios.post('/auth/register', {email, password})
             .then((res) => {
-                console.log('register', res.data)
+                
                 this.props.updateUser(res.data)
             })
-            .catch((error) => {
-                console.log(error)
+            .catch(() => {
+                
             })
 
     }
@@ -67,7 +67,7 @@ class Home extends Component{
         const {email, password} = this.state
         axios.post('/auth/login', {email, password})
             .then((res) => {
-                console.log('login',res.data)
+                
                 this.props.updateUser(res.data)
                 this.setState({
                     loggedin: true
@@ -76,7 +76,7 @@ class Home extends Component{
             
     }
     handleInput = (prop, value) => {
-        console.log(value)
+        
         this.setState({
             [prop]: value
         })

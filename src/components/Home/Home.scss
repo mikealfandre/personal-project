@@ -189,6 +189,9 @@ $breakpoint-iphonex: 375px;
         color: black;
         // font-family: 'robotobold';
     }
+    @media (max-width: 376px){ 
+                 display: none;
+            }
     
 }
 

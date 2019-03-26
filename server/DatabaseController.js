@@ -10,7 +10,7 @@ module.exports = {
 
         }
         catch (error) {
-            console.log('Errorroror', error)
+            ('Errorroror', error)
             res.status(300).send(error)
         }
 
@@ -35,13 +35,13 @@ module.exports = {
 
 
         } catch (error) {
-            console.log('error with put', error)
+            ('error with put', error)
             res.status(500).send(error)
         }
     },
     insertCharityDB: (req, res) => {
         try {
-            console.log('InsertCharityFired')
+            ('InsertCharityFired')
             const db = req.app.get('db')
             const { charity } = req.body
 
@@ -49,16 +49,16 @@ module.exports = {
                 .then((ch_id) => res.status(200).send(ch_id))
 
         } catch (error) {
-            console.log('Add my List error', error)
+            ('Add my List error', error)
 
         }
     },
     addMyList: (req, res) => {
         try {
-            // console.log('FIRED')
+            // ('FIRED')
             const db = req.app.get('db')
-            // console.log('req.params', req.params)
-            // console.log('req.session', req.session)
+            // ('req.params', req.params)
+            // ('req.session', req.session)
 
             const { cid } = req.params
             const { giveuser_id } = req.session.user
@@ -66,18 +66,18 @@ module.exports = {
 
             db.check_if_in_mylist([giveuser_id, cid])
                 .then(charity => {
-                    console.log('charity', charity)
+                    ('charity', charity)
                     if (!charity[0]) {
                         db.add_mylist([giveuser_id, cid])
                             .then((mylist) => res.status(200).send(mylist))
                     } else {
                         res.status(200).send(alreadyInList)
-                        console.log('Errorrrzzzzz')
+                        ('Errorrrzzzzz')
                     }
                 })
 
             } catch (error) {
-                console.log('Add my List error', error)
+                ('Add my List error', error)
             }
 
     },
@@ -86,15 +86,15 @@ module.exports = {
         const { giveuser_id } = req.session.user
         db.get_mylist([giveuser_id])
             .then((mylist) => res.status(200).send(mylist)) 
-            .catch((err) => console.log('err', err))
+            .catch((err) => ('err', err))
     },
     removeCharity: (req, res) => {
         const db = req.app.get('db')
         const { giveuser_id } = req.session.user
         const { cid } = req.params //What's difference between putting this on params or putting it on req.body?
 
-        console.log(cid)
-        console.log(giveuser_id)
+        (cid)
+        (giveuser_id)
         db.remove_charity([cid, giveuser_id])
             .then((mylist) => res.status(200).send(mylist))
             .catch((err) => res.status(500).send(err))
@@ -103,19 +103,19 @@ module.exports = {
         const db = req.app.get('db')
         const {giveuser_id} = req.session.user
         const {charity_name, amount, timestamp} = req.body
-        console.log(charity_name, amount, timestamp)
+        (charity_name, amount, timestamp)
 
         db.add_donation([amount, timestamp, charity_name, giveuser_id])
     },
     getDonations: (req, res) => {
-        console.log('getDonations backend fired')
+        ('getDonations backend fired')
         const db = req.app.get('db')
         const {giveuser_id} = req.session.user
-        console.log('GiveuserID', giveuser_id)
+        ('GiveuserID', giveuser_id)
 
         db.get_donations([giveuser_id])
             .then((donations) => {res.status(200).send(donations)})
-            .catch((err) => res.status(500).send(console.log('This is the backend Error', err)) )
+            .catch((err) => res.status(500).send(('This is the backend Error', err)) )
             
     }
 }

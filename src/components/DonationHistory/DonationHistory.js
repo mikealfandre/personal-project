@@ -15,7 +15,7 @@ class DonationHistory extends Component {
     componentDidMount(){
         axios.get('/api/donations')
             .then((res) => {
-                console.log('doantion res.data', res.data)
+                
                 this.setState({
                     donations: res.data
                 })
@@ -25,7 +25,7 @@ class DonationHistory extends Component {
     
     render() {
         const {donations} = this.state
-        console.log('Donations', this.state.donations)
+        
         return (
             <div className='DonationHistory-container'>
 

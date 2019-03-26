@@ -15,7 +15,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
-    app.listen(SERVER_PORT, () => console.log(`Momentum on ${SERVER_PORT}`))
+    app.listen(SERVER_PORT, () => (`Momentum on ${SERVER_PORT}`))
 })
 
 app.use(express.json()) 
