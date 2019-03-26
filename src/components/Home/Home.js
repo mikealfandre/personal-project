@@ -28,12 +28,12 @@ class Home extends Component{
             this.setState({
                 loggedin: true
             })
-            // this.props.history.push('/private') 
+            
         }else{
             axios.get('/auth/user')
                 .then((res) => {
                     this.props.updateUser(res.data)
-                    // this.props.history.push('/private')
+                    
                 })
                 .catch(err => {
                     this.setState({
@@ -88,12 +88,7 @@ class Home extends Component{
 
             <AppBarMenu/> 
             
-            
-            
-            {/* <input value={this.state.email} onChange={(e) => this.handleInput('email', e.target.value)} placeholder='email' /> */}
-            {/* <input value={this.state.password} onChange={(e) => this.handleInput('password', e.target.value)} placeholder='password' /> */}
-            {/* <button onClick={this.register}>register</button>
-            <button onClick={this.login}>login</button> */}
+          
             
             <div className='top-bar'>
                 <div className='logo'><span>+</span>GIVEWYSE<span className='dot'>.</span></div>

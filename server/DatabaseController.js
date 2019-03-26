@@ -10,7 +10,7 @@ module.exports = {
 
         }
         catch (error) {
-            ('Errorroror', error)
+            
             res.status(300).send(error)
         }
 
@@ -35,7 +35,7 @@ module.exports = {
 
 
         } catch (error) {
-            ('error with put', error)
+            
             res.status(500).send(error)
         }
     },
@@ -49,35 +49,33 @@ module.exports = {
                 .then((ch_id) => res.status(200).send(ch_id))
 
         } catch (error) {
-            ('Add my List error', error)
+            
 
         }
     },
     addMyList: (req, res) => {
         try {
-            // ('FIRED')
+            
             const db = req.app.get('db')
-            // ('req.params', req.params)
-            // ('req.session', req.session)
-
+            
             const { cid } = req.params
             const { giveuser_id } = req.session.user
             const alreadyInList = 'Already in your list!'
 
             db.check_if_in_mylist([giveuser_id, cid])
                 .then(charity => {
-                    ('charity', charity)
+                    
                     if (!charity[0]) {
                         db.add_mylist([giveuser_id, cid])
                             .then((mylist) => res.status(200).send(mylist))
                     } else {
                         res.status(200).send(alreadyInList)
-                        ('Errorrrzzzzz')
+                        
                     }
                 })
 
             } catch (error) {
-                ('Add my List error', error)
+                
             }
 
     },
@@ -86,7 +84,7 @@ module.exports = {
         const { giveuser_id } = req.session.user
         db.get_mylist([giveuser_id])
             .then((mylist) => res.status(200).send(mylist)) 
-            .catch((err) => ('err', err))
+            .catch((err) => (err))
     },
     removeCharity: (req, res) => {
         const db = req.app.get('db')
@@ -103,15 +101,15 @@ module.exports = {
         const db = req.app.get('db')
         const {giveuser_id} = req.session.user
         const {charity_name, amount, timestamp} = req.body
-        (charity_name, amount, timestamp)
+        
 
         db.add_donation([amount, timestamp, charity_name, giveuser_id])
     },
     getDonations: (req, res) => {
-        ('getDonations backend fired')
+        
         const db = req.app.get('db')
         const {giveuser_id} = req.session.user
-        ('GiveuserID', giveuser_id)
+        
 
         db.get_donations([giveuser_id])
             .then((donations) => {res.status(200).send(donations)})

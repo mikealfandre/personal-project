@@ -31,15 +31,6 @@ class DonationHistory extends Component {
 
             <DonationTable donations={donations}/>
                 
-
-                {/* {
-                    donations.map((donation, index) => 
-                        <div key={index}>
-                            <p>{donation.charity_name}</p>
-                            <p>{donation.amount}</p>
-                            <p>{donation.date}</p>
-                        </div>)
-                } */}
             </div>
         )
     }

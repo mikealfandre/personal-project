@@ -42,33 +42,19 @@ class MyList extends Component {
     render() {
         
         let showMyList = this.state.mylist.map((charity, index) => {
-            // ('Charity.id', charity.ch_id)
-            // ('Charity', charity)
+            
             return (
                 <div>
                     <GridCards removeCharity={this.removeCharity} charity={charity} index={index}/> 
-                    
-                    {/* <div className='my-card' key={index}>
-                        <button className='remove-button' onClick={() => this.removeCharity(charity.ch_id)}>X</button>
-                        
-                        <img src={charity.img} alt=''/>
-                        <p>{charity.name}</p>
-                        <p>{charity.mission}</p>
-                        <p>{charity.tagline}</p>
-                        <p>{charity.category}</p>
-                        <p>{charity.cause}</p>
-                        <p>{charity.rating}</p>
-                    </div> */}
-
                 </div>
             )
         })
         return (
             <div className='mylist-container'>
-                {/* <div className='mylist-title'>+myList</div> */}
+                
             
                 <div className='mylist-cards-container'>
-                    {/* <GridCards /> */}
+            
                     {showMyList}
                 </div>
             </div>

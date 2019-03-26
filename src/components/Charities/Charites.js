@@ -45,10 +45,11 @@ async componentDidMount(){
     await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=15&rated=true&minRating=2&scopeOfWork=NATIONAL`)
         .then((res) => {
            
-        
+            
+
            let shuffleArray = this.shuffleCards(res.data)
             
-            
+           
 
             for (let i = 0; i < shuffleArray.length; i++) {
                 shuffleArray[i].index = i
@@ -65,7 +66,7 @@ async componentDidMount(){
 
     for (let i = 0; i < this.state.charities.length; i++) {
     let query = this.state.charities[i].cause.causeName
-    ('Charities.mission', this.state.charities)
+  
         axios.get(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${process.env.REACT_APP_UNSPLASH_ID}`)
         .then((res) => {
             this.state.charities[i].img = res.data.urls.regular
@@ -74,17 +75,13 @@ async componentDidMount(){
                 photo: res.data.urls.small
             })
         })
-    ('Charities.mission', this.state.charities)
+    
     } 
     
     
 }
 
 handleDonation = async (value) => {
-    
-    
-    // ('Value', value)
-    // ('CharityName', charity_name)
     
     await this.setState({
         amount: value
@@ -107,7 +104,7 @@ handleDonation = async (value) => {
 
 
     axios.post('/api/donations', {amount, timestamp, charity_name})
-        .catch((err) => ('HandD Error', err))
+        .catch((err) => console.log('HandD Error', err))
         
         
 }
@@ -199,12 +196,7 @@ render() {
                             <DonateButton2 handleDonationFn={this.handleDonation} />
                             <DonateButton3 handleDonationFn={this.handleDonation} />
 
-                            {/* <div>TimeStamp: {day} / {month+1} / {year}</div> */}
-                            {/* <div>{this.state.timestamp}</div> */}
-
-                            {/* {
-                                this.state.timestamp.map((timestamp, index) => <div key={index}>{timestamp}</div>)
-                            } */}
+                           
                                 
                     </div>
                      

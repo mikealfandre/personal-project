@@ -31,7 +31,7 @@ class Preferences extends Component {
             wants_statement,
             wants_updates
         })
-        ('Comp Render State', this.state)
+        
        
     }
     toggleChange = () => {
@@ -79,7 +79,7 @@ class Preferences extends Component {
 
     render() {
         const {editing, email, wants_statement, wants_updates} = this.state
-        ('Start State', this.state)
+        
         
         return (
             <div className='preferences-container'>
@@ -88,8 +88,6 @@ class Preferences extends Component {
                 <Switch handleStToggle={this.handleStToggle} wants_statement={wants_statement} handleUpToggle={this.handleUpToggle} wants_updates={wants_updates}/>
                 
 
-                
-                
                 <div className='email-container'>
                     <h2>Preferred contact email</h2>
                     
@@ -100,14 +98,7 @@ class Preferences extends Component {
 
                 <div className="save-button-container">
                     <SaveButton updatePreferences={this.updatePreferences}/>
-                    {/* <button onClick={() => this.updatePreferences()} >Save Preferences</button> */}
                 </div>
-
-                
-
-                
-
-                
 
             </div>
         )

@@ -15,7 +15,6 @@ class Profile extends Component {
                 <AppBarMenu/>
                 <div className='exit-button'>
                     <Link to='/' className='link'><ExitIconButton/></Link>
-                    {/* <p>exit</p> */}
                 </div>
                 <nav>
                     <ul className='profile-ul fade'>
