@@ -112,6 +112,7 @@ $i: 0;
         width: $card-width-medium;
         min-height: $card-height-medium;
       }
+
       @media (min-width: 1300px){
         width: $card-width-wide;
         min-height: $card-height-wide;
@@ -155,7 +156,7 @@ $i: 0;
       .mission {
       font-size: 11px;
       line-height: 19px;
-      font-family: gotham;
+      font-family: 'gotham', 'roboto';
       // font-weight: bold;
       }
       .info-container {

@@ -5,9 +5,9 @@ import Modal from '@material-ui/core/Modal';
 import Login from '../MaterialUI/Login'
 
 
-function getModalStyle(theme) {
+const getModalStyle = theme => {
     const top = 5;
-    const left = 35;
+    const left = 15;
     // const top = 50 + rand();
     // const left = 50 + rand();
 
@@ -16,6 +16,8 @@ function getModalStyle(theme) {
         left: `${left}%`,
         
     };
+
+    
 }
 
 const styles = theme => ({
@@ -31,10 +33,10 @@ const styles = theme => ({
         // padding: theme.spacing.unit * 4,
         padding: '0',
         outline: 'none',
-        [theme.breakpoints.up('xs')]: {
+        [theme.breakpoints.down('xs')]: {
             // marginLeft: theme.spacing.unit * 3,
-            // width: 'auto',
-            left: '1%',
+            width: '80%',
+            left: '40%',
             // right: '1%'
         }
     },

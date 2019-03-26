@@ -33,13 +33,13 @@ app.use(express.static(`${__dirname}/../build`));
 app.get('/api/charities', dbcr.getAll)
 // app.get('/api/preferences', dbcr.getPreferences)
 
-app.put('/api/preferences/:id', dbcr.updatePreferences)
+app.put('/api/preferences/:id', dbcr.updatePreferences) 
 app.post('/api/donations', dbcr.addDonation)
 app.get('/api/donations', dbcr.getDonations)
 
 app.get('/api/mylist', dbcr.getMyList)
 app.post('/api/mylist/:cid', dbcr.addMyList)
-app.post('/api/insertcharity', dbcr.insertCharityDB)
+app.post('/api/insertcharity', dbcr.insertCharityDB) 
 app.delete('/api/mylist/:cid', dbcr.removeCharity)
 
 app.get('/auth/user', authcr.getUser)

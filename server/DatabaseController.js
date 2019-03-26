@@ -20,7 +20,7 @@ module.exports = {
 
 
     //     db.get_preferences([giveuser_id])
-    //         .then((preferences) => res.status(200).send(preferences)) 
+    //         .then((preferences) => res.status(200).send(preferences))  
     //         .catch((err) => res.status(500).send(err))
 
     // },

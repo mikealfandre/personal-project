@@ -26,7 +26,7 @@ $11,
 $12
 
 where not exists(
-    select ein from charities where ein = $9
+    select ein from charities where ein = $9 
 );
 
 select ch_id from charities

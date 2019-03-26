@@ -12,7 +12,7 @@ const styleTitle = {
     color: 'white', 
     fontSize: '16px',
     fontFamily: 'GothamBold',
-    fontWeight: 'bold',
+    fontWeight: 'bold', 
     padding: '0px'
     
 };

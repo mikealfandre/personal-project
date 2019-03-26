@@ -40,7 +40,7 @@ class FloatingActionButtons extends Component{
     }
    
     render(){
-        const { classes, charity, handleAddFn, loggedin } = this.props;
+        const { classes, charity, handleAddFn, loggedin } = this.props; 
         
 
         return(

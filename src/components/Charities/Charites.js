@@ -41,13 +41,13 @@ constructor(props) {
 
 async componentDidMount(){
     
-    
+    //Make axios request in the backend, helps with query limits and key security
     await axios.get(`https://api.data.charitynavigator.org/v2/Organizations?app_id=${process.env.REACT_APP_CHARITY_ID}&app_key=${process.env.REACT_APP_CHARITY_KEY}&pageSize=15&rated=true&minRating=2&scopeOfWork=NATIONAL`)
         .then((res) => {
             // for (let i = 0; i < res.data.length; i++) {
             //     res.data[i].index = i
             // }
-            console.log('after response res.data', res.data) 
+            console.log('after response res.data', res.data)
 
            let shuffleArray = this.shuffleCards(res.data)
             
@@ -187,7 +187,7 @@ render() {
                 
                     <div className={`cards-slider active-slide-${charity.index}`}> 
 
-                    
+                     
 
                         
  
